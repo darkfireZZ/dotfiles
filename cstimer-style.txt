@@ -1,0 +1,25 @@
+
+  +-------------------------------------------------------------------------+
+  |                                                                         |
+  |        This is my csTimer (https://cstimer.net) style export.           |
+  |                                                                         |
+  |   Author:        Nicola Bruhin                                          |
+  |   Last Changed:  18.04.2022                                             |
+  |                                                                         |
+  +-------------------------------------------------------------------------+
+
+
+WARNING: I take no warranty for anything in this file. If anything breaks after
+         the import it is your problem. I suggest creating a backup of you
+         csTimer configs & sessions before importing.
+
+How to import:
+ -> "https://cstimer.net"
+ -> "Export" (second icon in upper left corner)
+ -> "Export/Import only Options"
+ -> Paste the "STYLE_DATA_STRING" into the pop-up and press "OK"
+ -> enjoy the very cool styled timer ;)
+
+===================== START STYLE_DATA_STRING =====================
+N4IgrgzgpgsglgGwXEAuALgJzFANOaAGQHsBzYtAMwEMFp8w4ATKCOUgOzRAFt0OIIfAGNiCYpm5ghIUQgC0AI2rCA1twDEABh26ZcpcWqYmmgIyULF-WKVh06Yl1QgNAVkoA2M4rM2F4uSalCGh-vLIHOouGtQALEwAHADswuGUTujBoSHhgcTKauaWJTJwHAAO9two+OXoAKoActwATGZ6+BDCmADKcABeUGhmyV3o1BMI3DzEAMwABNTEbkvEZq1rravLblprHVoyEBPogqg0dHggjmLnWDh1PKT9QyOeAL5AA
+===================== END STYLE_DATA_STRING =====================
