@@ -10,7 +10,7 @@
 
 
 WARNING: I take no warranty for anything in this file. If anything breaks after
-         the import it is your problem. I suggest creating a backup of you
+         the import, it is your problem. I suggest creating a backup of your
          csTimer configs & sessions before importing.
 
 How to import:
