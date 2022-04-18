@@ -13,7 +13,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-# ------- EDITOR ------- #
+# ------- EDITOR & VISUAL ------- #
 
 # Set the EDITOR environment variable
 # Set to the first editor in the following list that is installed on the system
@@ -31,6 +31,9 @@ else
   echo "ERROR (from $0): Found none of the following editors: nvim, vim, \
 nano" 1>&2
 fi
+
+# set $VISUAL to the same editor as $EDITOR
+export VISUAL=$EDITOR
 
 # ------- PAGER	------- #
 
