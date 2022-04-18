@@ -123,11 +123,6 @@ setopt HIST_IGNORE_SPACE        # don't save commands starting with a space in h
 setopt HIST_REDUCE_BLANKS       # remove suprefluous blanks before writing to history
 setopt SHARE_HISTORY            # share history between all sessions
 
-# ------- configure PATH ------- #
-
-# rust's cargo directory
-. "$HOME/.cargo/bin"
-
 # ------- Miscellaneous Settings ------ #
 
 setopt NOTIFY              # report the status of background jobs immediately
