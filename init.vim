@@ -53,7 +53,24 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ }
 
+" <------- Color Scheme -------> "
+
+" Install color scheme. Configuration is done later on.
+Plug 'chriskempson/base16-vim'
+
 call plug#end()
+
+
+" <------- Color Scheme Config -------> "
+
+" set color scheme
+colorscheme base16-default-dark
+
+" The color scheme only works with this line for me, don't know why though.
+"
+" See https://github.com/chriskempson/base16-vim/#troubleshooting (last
+" accessed 10.05.2022 13:22).
+set termguicolors
 
 " enable ncm2 for all buffers
 autocmd BufEnter * call ncm2#enable_for_buffer()
