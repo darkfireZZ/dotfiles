@@ -7,10 +7,18 @@
 # |   My zsh configs.                                                       | #
 # |                                                                         | #
 # |   Author:               Nicola Bruhin                                   | #
-# |   Last Changed:         18.04.2022                                      | #
+# |   Last Changed:         19.05.2022                                      | #
 # |                                                                         | #
 # +-------------------------------------------------------------------------+ #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+# =============================== #
+# ======= GENERAL CONFIGS ======= #
+# =============================== #
+
+
+DOTFILES_DIR=$HOME/.dotfiles
 
 
 # ======================= #
@@ -77,6 +85,17 @@ precmd() {
         print ""
     fi
 }
+
+# ------- Terminal Style ------- #
+#
+# Use a base16 style
+
+BASE16_SHELL=$DOTFILES_DIR/"dependencies/base16-shell"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+base16_tomorrow-night-eighties
 
 
 # ================================== #

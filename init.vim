@@ -64,7 +64,7 @@ call plug#end()
 " <------- Color Scheme Config -------> "
 
 " set color scheme
-colorscheme base16-default-dark
+colorscheme base16-tomorrow-night-eighties
 
 " The color scheme only works with this line for me, don't know why though.
 "
