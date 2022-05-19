@@ -89,13 +89,13 @@ precmd() {
 # ------- Terminal Style ------- #
 #
 # Use a base16 style
+# TODO: write better documentation
 
 BASE16_SHELL=$DOTFILES_DIR/"dependencies/base16-shell"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
-
-base16_tomorrow-night-eighties
+	base16_tomorrow-night-eighties
 
 
 # ================================== #
