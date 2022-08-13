@@ -82,3 +82,9 @@ autocmd BufEnter * call ncm2#enable_for_buffer()
 
 " relative line numbers
 set relativenumber
+
+" When editing a file, always jump to the last known cursor position.
+autocmd BufReadPost *
+  \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+  \ |   exe "normal! g`\""
+  \ | endif
