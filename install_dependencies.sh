@@ -2,7 +2,7 @@
 
  #############################################################################
  #                                                                           #
- #                      build script for my dotfiles                         #
+ #                 dependency install script for my dotfiles                 #
  #                                                                           #
  #  Download & install dependencies.                                         #
  #                                                                           #
