@@ -63,4 +63,4 @@ ln -f $dotfiles/files/init.vim $HOME/.config/nvim/init.vim
 # ======= install dependencies ======= #
 
 echo "Install dependencies..."
-$dotfiles/scripts/install_dependencies.sh
+$dotfiles/scripts/install_dependencies.sh $dotfiles

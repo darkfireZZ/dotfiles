@@ -12,10 +12,7 @@
  #############################################################################
 
 # Store location of "dotfiles" directory
-dotfiles_dir=$(dirname $(dirname $0))
-
-# Create a dependencies directory if it does not already exist
-mkdir -p dependencies
+dotfiles_dir=$1
 
 # Check if git is installed, if it is not, print an error message and exit
 git --version 2>&1 >/dev/null
@@ -28,7 +25,7 @@ fi
 
 # Install base16-shell
 echo "Installing chriskempson/base16-shell..." >&2
-BASE16_SHELL_DIR="./dependencies/base16-shell"
+BASE16_SHELL_DIR="$dotfiles_dir/dependencies/base16-shell"
 if [ -d $BASE16_SHELL_DIR ]; then
     echo "base16-shell is already installed." >&2
     # TODO: Update base16-shell if it is already installed
