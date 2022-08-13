@@ -7,9 +7,12 @@
  #  Download & install dependencies.                                         #
  #                                                                           #
  #  Author: Nicola Bruhin                                                    #
- #  Last Change: 19.05.2022                                                  #
+ #  Last Change: 13.08.2022                                                  #
  #                                                                           #
  #############################################################################
+
+# Store location of "dotfiles" directory
+dotfiles_dir=$(dirname $(dirname $0))
 
 # Create a dependencies directory if it does not already exist
 mkdir -p dependencies
