@@ -34,4 +34,4 @@ else
 fi
 
 # Print nice finish message in the end
-echo "Build process finished. All dependencies were successfully installed."
+echo "All dependencies were successfully installed."
