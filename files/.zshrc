@@ -126,6 +126,9 @@ alias la="ls -lA"               # shorthand for ls -lA
 # clear
 alias cls="clear"               # alternative for clear
 alias c="clear"                 # alternative for clear
+alias clea="clear"              # in case of typo
+alias cleare="clear"            # in case of typo
+alias claer="clear"             # in case of typo
 
 # cdls
 alias cl="cdls"
