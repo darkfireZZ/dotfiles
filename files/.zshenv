@@ -52,5 +52,8 @@ fi
 
 # ------- PATH ------- #
 
-# add rust's cargo directory to PATH
-. "$HOME/.cargo/env"
+# add rust's cargo directory to PATH if the directory exists
+cargo_dir="$HOME/.cargo/env"
+if [ -d "$cargo_dir" ]; then
+    . $cargo_dir
+fi
