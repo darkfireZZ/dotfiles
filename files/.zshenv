@@ -7,7 +7,7 @@
 # |    Contains configs related to the $EDITOR and $PATH variables.         | #
 # |                                                                         | #
 # |    Author:          Nicola Bruhin                                       | #
-# |    Last Changed:    18.04.2022                                          | #
+# |    Last Changed:    15.08.2022                                          | #
 # |                                                                         | #
 # +-------------------------------------------------------------------------+ #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
