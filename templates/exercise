@@ -1,0 +1,12 @@
+\documentclass{article}
+
+\input{\string~/.dotfiles/latex/exercise}
+
+\begin{document}
+\title{<???>}
+\author{<???>}
+\maketitle
+
+<???>
+
+\end{document}
