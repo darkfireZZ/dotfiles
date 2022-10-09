@@ -2,35 +2,64 @@
 
  #############################################################################
  #                                                                           #
- #                      build script for my dotfiles                         #
+ #                        build script for my dotfiles                       #
  #                                                                           #
- #  Download & install dependencies.                                         #
+ #  Sets up all the configs. Meaning all files are linked to the right       #
+ #  places and dependencies are installed. I only tested this on Ubuntu      #
+ #  and did not test it very well, so there will likely be a whole lot of    #
+ #  bugs in here. If you spot one, tell me and I'll fix it.                  #
+ #                                                                           #
+ #  IMPORTANT: Before running this script, make sure that the following      #
+ #             dependencies are installed:                                   #
+ #               init.vim :                                                  #
+ #                 - python3                                                 #
+ #                 - curl                                                    #
+ #                 - neovim 0.2.2 or newer                                   #
+ #                 - rls (for rust suggestions)                              #
+ #               kitty.conf :                                                #
+ #                 - kitty                                                   #
+ #               .zshenv :                                                   #
+ #                 - zsh                                                     #
+ #               .zshrc :                                                    #
+ #                 - zsh                                                     #
+ #                                                                           #
+ # EVEN MORE IMPORTANT: This script is NOT WELL TESTED and might mess up     #
+ #                      your system.                                         #
  #                                                                           #
  #  TODO update this, it doesn't work right now                              #
  #                                                                           #
  #############################################################################
 
-# Create a dependencies directory if it does not already exist
-mkdir -p dependencies
 
-# Check if git is installed, if it is not, print an error message and exit
-git --version 2>&1 >/dev/null
-GIT_IS_AVAILABLE=$?
-if [ $GIT_IS_AVAILABLE -ne 0 ]; then
-    echo "git is not installed" >&2
-    echo "git is required for this script to work" >&2
-    exit 1
+# ======= some setup ====== #
+
+# rename the dotfiles directory to ".dotfiles"
+old_dotfiles=$(realpath $(dirname $0))
+
+# store the location of the dotfiles directory for easier access later on
+dotfiles=$(dirname $old_dotfiles)/.dotfiles
+
+if [ "$old_dotfiles" != "$dotfiles" ]; then
+    mv $old_dotfiles $dotfiles
 fi
 
-# Install base16-shell
-echo "Installing chriskempson/base16-shell..." >&2
-BASE16_SHELL_DIR="./dependencies/base16-shell"
-if [ -d $BASE16_SHELL_DIR ]; then
-    echo "base16-shell is already installed." >&2
-    # TODO: Update base16-shell if it is already installed
-else
-    git clone https://github.com/chriskempson/base16-shell.git $BASE16_SHELL_DIR
-fi
 
-# Print nice finish message in the end
-echo "Build process finished. All dependencies were successfully installed."
+# ======= link files ======= #
+
+echo "Link files..."
+
+ln -f $dotfiles/files/.zshrc $HOME/.zshrc
+ln -f $dotfiles/files/.zshenv $HOME/.zshenv
+ln -f $dotfiles/files/kitty.conf $HOME/.config/kitty/kitty.conf
+
+# sometimes the nvim config directory does not exist, in that case, create it
+if [ ! -d $HOME/.config/nvim ]; then
+    mkdir $HOME/.config/nvim
+fi
+ln -f $dotfiles/files/init.vim $HOME/.config/nvim/init.vim
+
+
+# ======= install dependencies ======= #
+
+echo "Install dependencies..."
+$dotfiles/scripts/install_dependencies.sh $dotfiles

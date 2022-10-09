@@ -6,9 +6,6 @@
 # |                                                                         | #
 # |    Contains configs related to the $EDITOR and $PATH variables.         | #
 # |                                                                         | #
-# |    Author:          Nicola Bruhin                                       | #
-# |    Last Changed:    18.04.2022                                          | #
-# |                                                                         | #
 # +-------------------------------------------------------------------------+ #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -55,5 +52,8 @@ fi
 # add all the binaries in the dotfiles to PATH
 export PATH=$PATH:"$HOME/.dotfiles/bin"
 
-# add rust's cargo directory to PATH
-. "$HOME/.cargo/env"
+# add rust's cargo directory to PATH if the directory exists
+cargo_dir="$HOME/.cargo/env"
+if [ -d "$cargo_dir" ]; then
+    . $cargo_dir
+fi

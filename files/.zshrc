@@ -111,6 +111,8 @@ alias la="ls -lA"               # shorthand for ls -lA
 
 # recursively remove .DS_Store files (starting at the current directory)
 alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
+# clear
+alias c="clear"                 # alternative for clear
 
 alias plate="template.sh"
 
