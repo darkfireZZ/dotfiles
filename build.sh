@@ -6,8 +6,7 @@
  #                                                                           #
  #  Download & install dependencies.                                         #
  #                                                                           #
- #  Author: Nicola Bruhin                                                    #
- #  Last Change: 19.05.2022                                                  #
+ #  TODO update this, it doesn't work right now                              #
  #                                                                           #
  #############################################################################
 
