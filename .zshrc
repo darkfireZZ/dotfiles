@@ -7,7 +7,6 @@
 # |   My zsh configs.                                                       | #
 # |                                                                         | #
 # |   Author:               Nicola Bruhin                                   | #
-# |   Last Changed:         19.05.2022                                      | #
 # |                                                                         | #
 # +-------------------------------------------------------------------------+ #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -102,19 +101,6 @@ BASE16_SHELL=$DOTFILES_DIR/"dependencies/base16-shell"
 # ======= FUNCTIONAL CONFIGS ======= #
 # ================================== #
 
-
-# ------- Functions ------- #
-
-# cd + ls
-function cdls() {
-    cd $@ && ls
-}
-
-# cd + la
-function cdla() {
-    cd $1 && la
-}
-
 # ------- Aliases ------- #
 
 # ls
@@ -123,15 +109,13 @@ alias l="ls"                    # shorthand for ls
 alias sl="ls"                   # also work in case of typo
 alias la="ls -lA"               # shorthand for ls -lA
 
-# clear
-alias cls="clear"               # alternative for clear
-alias c="clear"                 # alternative for clear
+# recursively remove .DS_Store files (starting at the current directory)
+alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
 
-# cdls
-alias cl="cdls"
+alias plate="template.sh"
 
-#cdla
-alias ca="cdla"
+alias proj="cd $HOME/proj"
+alias dotfiles="cd $HOME/.dotfiles"
 
 # ------- History Configs ------- #
 
