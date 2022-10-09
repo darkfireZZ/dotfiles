@@ -52,5 +52,8 @@ fi
 
 # ------- PATH ------- #
 
+# add all the binaries in the dotfiles to PATH
+export PATH=$PATH:"$HOME/.dotfiles/bin"
+
 # add rust's cargo directory to PATH
 . "$HOME/.cargo/env"
