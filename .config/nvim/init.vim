@@ -41,17 +41,23 @@ Plug 'ncm2/ncm2-bufword'
 " path suggestions
 Plug 'ncm2/ncm2-path'
 
+" <------- UltiSnips -------> "
+Plug 'sirver/ultisnips'
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
 " <------- Language Client -------> "
 
 " plugin installation
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
 
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ }
+" let g:LanguageClient_serverCommands = {
+"     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+"     \ }
 
 " <------- Color Scheme -------> "
 
@@ -80,6 +86,11 @@ autocmd BufEnter * call ncm2#enable_for_buffer()
 "        Miscellaneous Settings        "
 " ==================================== "
 
+" filetype related stuff
+filetype on             " enable filetype detection
+filetype plugin on      " load file-specific plugins
+filetype indent on      " load file-specific indentation
+
 " relative line numbers
 set relativenumber
 
@@ -88,3 +99,16 @@ autocmd BufReadPost *
   \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
   \ |   exe "normal! g`\""
   \ | endif
+
+" jump to the next occurrence of "<???>", remove it and switch into insert mode
+:map <Space>n /<???><Enter>:noh<Enter>5s
+
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+
+" set indent for tex files to 2
+autocmd FileType tex set shiftwidth=2 tabstop=2

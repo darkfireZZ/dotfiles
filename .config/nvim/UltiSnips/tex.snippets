@@ -1,0 +1,125 @@
+
+# taken from https://castel.dev/post/lecture-notes-1/
+# last accessed 2022/10/02
+snippet beg "begin{} / end{}" bA
+\begin{$1}
+  $0
+\end{$1}
+endsnippet
+
+snippet be1 "begin{}{1 parameter} / end" bA
+\begin{$1}{$2}
+  $0
+\end{$1}
+endsnippet
+
+snippet be2 "begin{}{2 parameters} / end" bA
+\begin{$1}{$2}{$3}
+  $0
+\end{$1}
+endsnippet
+
+snippet ma "\[ / \]"
+\[
+  $0
+\]
+endsnippet
+
+snippet im "\( )\"
+\($1\)$0
+endsnippet
+
+snippet / "fraction"
+\frac{$1}{$2}$0
+endsnippet
+
+snippet array "array"
+\begin{array}{$1}
+  $0
+\end{array}
+endsnippet
+
+snippet * "\cdot"
+\cdot
+endsnippet
+
+snippet matrix "matrix"
+\begin{bmatrix*}[r]
+  $0
+\end{bmatrix*}
+endsnippet
+
+snippet matrix3 "3x3 matrix"
+\begin{bmatrix*}[r]
+  $1 & $2 & $3 \\\\
+  $4 & $5 & $6 \\\\
+  $7 & $8 & $0 \\\\
+\end{bmatrix*}
+endsnippet
+
+snippet 'id(\d)' "identity matrix" r
+`!p
+dim = int(match.group(1))
+for i in range(dim):
+    acc = ""
+    for j in range(dim):
+        if i == j:
+            val = "1 "
+        else:
+            val = "0 "
+
+        if j < dim - 1:
+            s = val + "& "
+        else:
+            s = val + r"\\"
+
+        acc += s
+    snip.rv += snip.mkline(acc)
+    if i < dim - 1:
+        snip.rv += "\n"
+`
+endsnippet
+
+snippet task
+\begin{task}{$1}
+  $0
+\end{task}
+endsnippet
+
+snippet subtask "subtask"
+\begin{subtask}{$1}
+  {
+    $2
+  }
+    $0
+\end{subtask}
+endsnippet
+
+snippet "(\d+)/(\d+)" "simple fraction" r
+`!p
+snip.rv = r"\frac{" + match.group(1) + "}{" + match.group(2) + "}"
+`
+endsnippet
+
+snippet frac
+\frac{$1}{$2}$0
+endsnippet
+
+snippet enumerate
+\begin{enumerate}
+  $0
+\end{enumerate}
+endsnippet
+
+snippet itemize
+\begin{itemize}
+  $0
+\end{itemize}
+endsnippet
+
+# TODO fix incompatibility with id snippet
+# taken from https://castel.dev/post/lecture-notes-1/
+# last accessed 2022/10/02
+#snippet '([A-Za-z])(\d)' "auto subscript" wrA
+#`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+#endsnippet
