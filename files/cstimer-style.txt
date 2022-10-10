@@ -3,9 +3,6 @@
   |                                                                         |
   |        This is my csTimer (https://cstimer.net) style export.           |
   |                                                                         |
-  |   Author:        Nicola Bruhin                                          |
-  |   Last Changed:  18.04.2022                                             |
-  |                                                                         |
   +-------------------------------------------------------------------------+
 
 

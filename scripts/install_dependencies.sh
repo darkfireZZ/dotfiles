@@ -2,12 +2,7 @@
 
  #############################################################################
  #                                                                           #
- #                 dependency install script for my dotfiles                 #
- #                                                                           #
- #  Download & install dependencies.                                         #
- #                                                                           #
- #  Author: Nicola Bruhin                                                    #
- #  Last Change: 13.08.2022                                                  #
+ #  Dependency install script for my dotfiles                                #
  #                                                                           #
  #############################################################################
 

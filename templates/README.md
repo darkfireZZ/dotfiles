@@ -1,0 +1,4 @@
+
+# templates
+
+Avoid writing boilerplate!

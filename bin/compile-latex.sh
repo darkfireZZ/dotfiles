@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
-# Compiles a ".tex" file to PDF using pdflatex.
-#
-# The compiled PDF is placed in the same directory as the source file.
+################################################################################
+#                                                                              #
+# Compiles a ".tex" file to PDF using pdflatex.                                #
+#                                                                              #
+# The compiled PDF is placed in the same directory as the source file.         #
+#                                                                              #
+################################################################################
 
 if [[ $# -ne 1 ]]
 then

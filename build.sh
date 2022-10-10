@@ -2,31 +2,13 @@
 
  #############################################################################
  #                                                                           #
- #                        build script for my dotfiles                       #
+ # (BROKEN) build script for my dotfiles                                     #
  #                                                                           #
  #  Sets up all the configs. Meaning all files are linked to the right       #
- #  places and dependencies are installed. I only tested this on Ubuntu      #
- #  and did not test it very well, so there will likely be a whole lot of    #
- #  bugs in here. If you spot one, tell me and I'll fix it.                  #
+ #  places and dependencies are installed.                                   #
  #                                                                           #
- #  IMPORTANT: Before running this script, make sure that the following      #
- #             dependencies are installed:                                   #
- #               init.vim :                                                  #
- #                 - python3                                                 #
- #                 - curl                                                    #
- #                 - neovim 0.2.2 or newer                                   #
- #                 - rls (for rust suggestions)                              #
- #               kitty.conf :                                                #
- #                 - kitty                                                   #
- #               .zshenv :                                                   #
- #                 - zsh                                                     #
- #               .zshrc :                                                    #
- #                 - zsh                                                     #
- #                                                                           #
- # EVEN MORE IMPORTANT: This script is NOT WELL TESTED and might mess up     #
- #                      your system.                                         #
- #                                                                           #
- #  TODO update this, it doesn't work right now                              #
+ #  IMPORTANT: This script is NOT WELL TESTED and might mess up              #
+ #             your system if executed.                                      #
  #                                                                           #
  #############################################################################
 
