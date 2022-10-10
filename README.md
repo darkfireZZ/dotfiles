@@ -1,16 +1,15 @@
-# dotfiles
+# Dotfiles
 
-This is a collection of all sorts of configuration files I use for a variety of
-applications.
+My personal dotfiles. Feel free to have a look & use whatever you find useful.
 
-"files/" contains the config files. Each of the files contains some information
-about its contents and its purpose at the top.
+Note that there will likely be frequent breaking changes.
 
-"build.sh": Execute "build.sh" to install the configurations on a UNIX system.
-Do this at your own risk and consider the following before doing so:
-1. Installation will most likely fail. I didn't test this script on every
-possible UNIX system and also don't intend on doing so.
-2. Before running the script, read the instructions at the top of the
-"build.sh" file. It might contain some more details.
+# License
 
-"scripts/" are scripts used by "build.sh"
+Copyright 2022 Nicola Bruhin
+                                                                 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+                                                                 
+    http://www.apache.org/licenses/LICENSE-2.0
