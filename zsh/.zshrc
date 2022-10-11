@@ -113,7 +113,7 @@ alias c="clear"                 # alternative for clear
 alias plate="template.sh"
 
 alias proj="cd $HOME/proj"
-alias dotfiles="cd $HOME/.dotfiles"
+alias dotfiles="cd $DOTFILES_DIR"
 
 # ------- History Configs ------- #
 
@@ -129,3 +129,5 @@ setopt SHARE_HISTORY            # share history between all sessions
 
 setopt NOTIFY              # report the status of background jobs immediately
 setopt PROMPTSUBST         # enable command substitution in prompt
+
+source $DOTFILES_DIR/dependencies/up.sh
