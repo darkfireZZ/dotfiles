@@ -97,6 +97,11 @@ BASE16_SHELL=$DOTFILES_DIR/"dependencies/base16-shell"
 # ======= FUNCTIONAL CONFIGS ======= #
 # ================================== #
 
+# ------- Enable Autocompletion ------- #
+
+autoload -Uz compinit
+compinit
+
 # ------- Aliases ------- #
 
 # ls
