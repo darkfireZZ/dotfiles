@@ -7,7 +7,7 @@
  #############################################################################
 
 # Store location of "dotfiles" directory
-dotfiles_dir=$1
+dotfiles_dir=$(basename $0)
 
 # Check if git is installed, if it is not, print an error message and exit
 git --version 2>&1 >/dev/null
@@ -27,6 +27,8 @@ if [ -d $BASE16_SHELL_DIR ]; then
 else
     git clone https://github.com/chriskempson/base16-shell.git $BASE16_SHELL_DIR
 fi
+
+curl -o dependencies/up.sh https://raw.githubusercontent.com/shannonmoeller/up/master/up.sh
 
 # Print nice finish message in the end
 echo "All dependencies were successfully installed."

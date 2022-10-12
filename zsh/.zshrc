@@ -104,16 +104,21 @@ alias ls="ls --color=auto"      # enable color support for ls
 alias l="ls"                    # shorthand for ls
 alias sl="ls"                   # also work in case of typo
 alias la="ls -lA"               # shorthand for ls -lA
+alias al="la"                   # also work in case of typo
+
+# cd
+alias cb="cd -"
 
 # recursively remove .DS_Store files (starting at the current directory)
 alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
+
 # clear
 alias c="clear"                 # alternative for clear
 
 alias plate="template.sh"
 
 alias proj="cd $HOME/proj"
-alias dotfiles="cd $HOME/.dotfiles"
+alias dotfiles="cd $DOTFILES_DIR"
 
 # ------- History Configs ------- #
 
@@ -129,3 +134,5 @@ setopt SHARE_HISTORY            # share history between all sessions
 
 setopt NOTIFY              # report the status of background jobs immediately
 setopt PROMPTSUBST         # enable command substitution in prompt
+
+source $DOTFILES_DIR/dependencies/up.sh
