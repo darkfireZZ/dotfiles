@@ -4,3 +4,11 @@ fn $1() {
 	$0
 }
 endsnippet
+
+snippet display
+impl Display for $0 {
+	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+		write!(f, "")
+	}
+}
+endsnippet
