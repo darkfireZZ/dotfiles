@@ -125,6 +125,15 @@ alias plate="template.sh"
 alias proj="cd $HOME/proj"
 alias dotfiles="cd $DOTFILES_DIR"
 
+# update nix install on macos
+# taken from the manual (2022/10/17):
+# https://nixos.org/manual/nix/stable/installation/upgrading.html
+alias update-nix-macos="\
+    sudo -i sh -c 'nix-channel --update && \
+    nix-env -iA nixpkgs.nix && \
+    launchctl remove org.nixos.nix-daemon && \
+    launchctl load /Library/LaunchDaemons/org.nixos.nix-daemon.plist'"
+
 # ------- History Configs ------- #
 
 HISTFILE=~/.history
