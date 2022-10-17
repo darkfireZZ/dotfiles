@@ -122,8 +122,12 @@ alias c="clear"                 # alternative for clear
 
 alias plate="template.sh"
 
+# cd to projects dir
 alias proj="cd $HOME/proj"
+# cd to dotfiles dir
 alias dotfiles="cd $DOTFILES_DIR"
+# cd to home dir
+alias home="cd $HOME"
 
 # update nix install on macos
 # taken from the manual (2022/10/17):
