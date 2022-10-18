@@ -5,9 +5,15 @@
   home.homeDirectory = "/Users/nicolabruhin";
 
   home.packages = [
-    pkgs.tree
-    pkgs.htop
+    # files stuff
+    pkgs.bat
+    pkgs.exa
+    pkgs.fd
+    # dev
     pkgs.neovim
+    pkgs.tokei
+    # other things
+    pkgs.htop
     pkgs.hyperfine
     pkgs.texlive.combined.scheme-medium
   ];
