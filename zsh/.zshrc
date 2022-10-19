@@ -104,12 +104,15 @@ compinit
 
 # ------- Aliases ------- #
 
-# ls
+# ls & exa
 alias ls="ls --color=auto"      # enable color support for ls
-alias l="ls"                    # shorthand for ls
 alias sl="ls"                   # also work in case of typo
-alias la="ls -lA"               # shorthand for ls -lA
+
+# exa
+alias l="exa"
+alias la="exa --long --all"
 alias al="la"                   # also work in case of typo
+alias tree="exa --tree"
 
 # cd
 alias cb="cd -"
