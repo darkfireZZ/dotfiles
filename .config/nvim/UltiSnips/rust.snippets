@@ -1,9 +1,5 @@
-snippet test
-#[test]
-fn $1() {
-	$0
-}
-endsnippet
+
+# ======= traits ======= #
 
 snippet Display
 impl Display for $0 {
@@ -19,5 +15,18 @@ impl FromStr for $1 {
 	fn from_str(s: &str) -> Result<Self, Self::Err> {
 		$0
 	}
+}
+endsnippet
+
+# ======= other stuff ======= #
+
+snippet derive
+#[derive($0)]
+endsnippet
+
+snippet test
+#[test]
+fn $1() {
+	$0
 }
 endsnippet
