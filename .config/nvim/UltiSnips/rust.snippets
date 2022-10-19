@@ -5,10 +5,19 @@ fn $1() {
 }
 endsnippet
 
-snippet display
+snippet Display
 impl Display for $0 {
 	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
 		write!(f, "")
+	}
+}
+endsnippet
+
+snippet FromStr
+impl FromStr for $1 {
+	type Err = $2;
+	fn from_str(s: &str) -> Result<Self, Self::Err> {
+		$0
 	}
 }
 endsnippet
