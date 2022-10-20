@@ -13,9 +13,11 @@
     pkgs.neovim
     pkgs.tokei
     # other things
+    pkgs.curl
     pkgs.htop
     pkgs.hyperfine
     pkgs.texlive.combined.scheme-medium
+    pkgs.zsh
   ];
 
   # This value determines the Home Manager release that your
