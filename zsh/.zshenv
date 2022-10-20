@@ -57,3 +57,13 @@ cargo_dir="$HOME/.cargo/env"
 if [ -f "$cargo_dir" ]; then
     . $cargo_dir
 fi
+
+# Make sure that nix is in $PATH
+#
+# Nix broke after updating my macbook air because this was missing from my
+# /etc/zshrc. Fix (or workaround?): add the snippet into this file.
+#
+# Related issue: https://github.com/NixOS/nix/issues/3616
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
