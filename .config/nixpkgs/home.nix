@@ -13,6 +13,7 @@
     # dev
     pkgs.neovim
     pkgs.tokei
+    pkgs.python310Packages.grip
     # other things
     pkgs.curl
     pkgs.htop
