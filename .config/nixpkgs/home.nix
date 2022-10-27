@@ -9,12 +9,14 @@
     pkgs.bat
     pkgs.exa
     pkgs.fd
+    pkgs.ripgrep
     # dev
     pkgs.neovim
     pkgs.tokei
     # other things
     pkgs.curl
     pkgs.htop
+    pkgs.imagemagick
     pkgs.hyperfine
     pkgs.texlive.combined.scheme-medium
     pkgs.zsh
