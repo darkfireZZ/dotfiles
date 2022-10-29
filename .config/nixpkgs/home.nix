@@ -132,6 +132,19 @@
             launchctl remove org.nixos.nix-daemon && \
             launchctl load /Library/LaunchDaemons/org.nixos.nix-daemon.plist'";
       };
+      plugins = [
+        {
+          name = "up";
+          file = "up.sh";
+          src = pkgs.fetchFromGitHub {
+            owner = "shannonmoeller";
+            repo = "up";
+            rev = "a1fe10fababd58567880380938fdae6d6b9d5bdf";
+            sha256 = "8379baf90bbc1aee582bb097fa41899f65425f376d521eb8c411b297e9686464";
+          };
+        }
+      ];
+
       envExtra = ''
 # Set the EDITOR environment variable
 # Set to the first editor in the following list that is installed on the system
@@ -207,8 +220,6 @@ BASE16_SHELL=$DOTFILES_DIR/"dependencies/base16-shell"
 
 setopt NOTIFY              # report the status of background jobs immediately
 setopt PROMPTSUBST         # enable command substitution in prompt
-
-source $DOTFILES_DIR/dependencies/up.sh
 '';
     };
   };
