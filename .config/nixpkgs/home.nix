@@ -25,17 +25,28 @@
     zsh
   ];
 
-  programs.git = {
-    enable = true;
-    aliases = {
-      s = "status";
-      d = "diff";
+  programs = {
+    git = {
+      enable = true;
+      aliases = {
+        s = "status";
+        d = "diff";
+      };
+      userEmail = "64635413+darkfireZZ@users.noreply.github.com";
+      userName = "darkfireZZ";
+      extraConfig = {
+          init.defaultBranch = "main";
+          core.editor = "nvim";
+      };
     };
-    userEmail = "64635413+darkfireZZ@users.noreply.github.com";
-    userName = "darkfireZZ";
-    extraConfig = {
-        init.defaultBranch = "main";
-        core.editor = "nvim";
+
+    kitty = {
+      enable = true;
+      settings = {
+        remember_window_size = "yes";
+        window_margin_width = 7;
+        hide_window_decorations = "titlebar-only";
+      };
     };
   };
 
