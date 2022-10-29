@@ -25,6 +25,20 @@
     zsh
   ];
 
+  programs.git = {
+    enable = true;
+    aliases = {
+      s = "status";
+      d = "diff";
+    };
+    userEmail = "64635413+darkfireZZ@users.noreply.github.com";
+    userName = "darkfireZZ";
+    extraConfig = {
+        init.defaultBranch = "main";
+        core.editor = "nvim";
+    };
+  };
+
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
