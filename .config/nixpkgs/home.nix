@@ -55,6 +55,44 @@
 
     zsh = {
       enable = true;
+      shellAliases = {
+        # ls
+        ls = "ls --color=auto";      # enable color support for ls
+        sl = "ls";                   # also work in case of typo
+
+        # exa
+        l = "exa";
+        la = "exa --long --all";
+        al = "la";                   # also work in case of typo
+        tree = "exa --tree";
+
+        # cd
+        cb = "cd -";
+
+        # recursively remove .DS_Store files (starting at the current directory)
+        cleanupds = "find . -type f -name '*.DS_Store' -ls -delete";
+
+        # clear
+        c = "clear";                 # alternative for clear
+
+        plate = "template.sh";
+
+        # cd to projects dir
+        proj = "cd $HOME/proj";
+        # cd to dotfiles dir
+        dotfiles = "cd $DOTFILES_DIR";
+        # cd to home dir
+        home = "cd $HOME";
+
+        # update nix install on macos
+        # taken from the manual (2022/10/17):
+        # https://nixos.org/manual/nix/stable/installation/upgrading.html
+        update-nix-macos = "\
+            sudo -i sh -c 'nix-channel --update && \
+            nix-env -iA nixpkgs.nix && \
+            launchctl remove org.nixos.nix-daemon && \
+            launchctl load /Library/LaunchDaemons/org.nixos.nix-daemon.plist'";
+      };
       envExtra = ''
 # Set the EDITOR environment variable
 # Set to the first editor in the following list that is installed on the system
@@ -126,54 +164,11 @@ BASE16_SHELL=$DOTFILES_DIR/"dependencies/base16-shell"
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 	base16_tomorrow-night-eighties
 
-
-# ================================== #
-# ======= FUNCTIONAL CONFIGS ======= #
-# ================================== #
-
 # ------- Enable Autocompletion ------- #
 
 autoload -Uz compinit
 compinit
 
-# ------- Aliases ------- #
-
-# ls & exa
-alias ls="ls --color=auto"      # enable color support for ls
-alias sl="ls"                   # also work in case of typo
-
-# exa
-alias l="exa"
-alias la="exa --long --all"
-alias al="la"                   # also work in case of typo
-alias tree="exa --tree"
-
-# cd
-alias cb="cd -"
-
-# recursively remove .DS_Store files (starting at the current directory)
-alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
-
-# clear
-alias c="clear"                 # alternative for clear
-
-alias plate="template.sh"
-
-# cd to projects dir
-alias proj="cd $HOME/proj"
-# cd to dotfiles dir
-alias dotfiles="cd $DOTFILES_DIR"
-# cd to home dir
-alias home="cd $HOME"
-
-# update nix install on macos
-# taken from the manual (2022/10/17):
-# https://nixos.org/manual/nix/stable/installation/upgrading.html
-alias update-nix-macos="\
-    sudo -i sh -c 'nix-channel --update && \
-    nix-env -iA nixpkgs.nix && \
-    launchctl remove org.nixos.nix-daemon && \
-    launchctl load /Library/LaunchDaemons/org.nixos.nix-daemon.plist'"
 
 # ------- History Configs ------- #
 
