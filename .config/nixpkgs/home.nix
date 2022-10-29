@@ -1,26 +1,28 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "nicolabruhin";
-  home.homeDirectory = "/Users/nicolabruhin";
+  home = {
+    username = "nicolabruhin";
+    homeDirectory = "/Users/nicolabruhin";
+  };
 
-  home.packages = [
+  home.packages = with pkgs; [
     # files stuff
-    pkgs.bat
-    pkgs.exa
-    pkgs.fd
-    pkgs.ripgrep
+    bat
+    exa
+    fd
+    ripgrep
     # dev
-    pkgs.neovim
-    pkgs.tokei
-    pkgs.python310Packages.grip
+    neovim
+    tokei
+    python310Packages.grip
     # other things
-    pkgs.curl
-    pkgs.htop
-    pkgs.imagemagick
-    pkgs.hyperfine
-    pkgs.texlive.combined.scheme-medium
-    pkgs.zsh
+    curl
+    htop
+    imagemagick
+    hyperfine
+    texlive.combined.scheme-medium
+    zsh
   ];
 
   # This value determines the Home Manager release that your
