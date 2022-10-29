@@ -55,6 +55,15 @@
 
     zsh = {
       enable = true;
+      completionInit = "autoload -U compinit && compinit";
+      history = {
+        path = "$HOME/.zsh_history";
+        size = 1000;
+        save = 2000;
+        ignoreDups = true;
+        ignoreSpace = true; # don't save commands starting with a space in history
+        share = true; # share history between all sessions
+      };
       shellAliases = {
         # ls
         ls = "ls --color=auto";      # enable color support for ls
@@ -164,29 +173,12 @@ BASE16_SHELL=$DOTFILES_DIR/"dependencies/base16-shell"
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 	base16_tomorrow-night-eighties
 
-# ------- Enable Autocompletion ------- #
-
-autoload -Uz compinit
-compinit
-
-
-# ------- History Configs ------- #
-
-HISTFILE=~/.history
-HISTSIZE=1000
-SAVEHIST=2000
-setopt HIST_IGNORE_ALL_DUPS     # don't save ANY duplicates in history
-setopt HIST_IGNORE_SPACE        # don't save commands starting with a space in history
-setopt HIST_REDUCE_BLANKS       # remove suprefluous blanks before writing to history
-setopt SHARE_HISTORY            # share history between all sessions
-
 # ------- Miscellaneous Settings ------ #
 
 setopt NOTIFY              # report the status of background jobs immediately
 setopt PROMPTSUBST         # enable command substitution in prompt
 
 source $DOTFILES_DIR/dependencies/up.sh
-
 '';
     };
   };
