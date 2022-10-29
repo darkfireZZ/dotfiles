@@ -22,7 +22,6 @@
     imagemagick
     hyperfine
     texlive.combined.scheme-medium
-    zsh
   ];
 
   programs = {
@@ -50,6 +49,37 @@
         remember_window_size = "yes";
         window_margin_width = 7;
         hide_window_decorations = "titlebar-only";
+      };
+    };
+
+    starship = {
+      enable = true;
+      enableZshIntegration = true;
+      settings = {
+        add_newline = true;
+        format = pkgs.lib.strings.concatStrings [
+          "[┌──\\($username$hostname\\)-\\[$directory\\]$git_branch\n](green)"
+          "[└─[\\$](bold blue)](bold green) "
+        ];
+        directory = {
+          format = "[$path]($style)";
+          style = "white";
+        };
+        username = {
+          format = "[$user]($style)";
+          style_user = "bold blue";
+          style_root = "bold red";
+          show_always = true;
+        };
+        hostname = {
+          ssh_only = true;
+          format = "[@$hostname]($style)";
+          style = "bold blue";
+        };
+        git_branch = {
+          format = " on [$branch(:$remote_branch)]($style)";
+          style = "bold purple";
+        };
       };
     };
 

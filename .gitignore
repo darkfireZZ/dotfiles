@@ -1,3 +1,4 @@
 /dependencies
 /.config/git
 /.config/kitty
+/.config/starship.toml
