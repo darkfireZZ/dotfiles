@@ -33,6 +33,10 @@ in {
   };
 
   programs = {
+    bash = {
+      enable = true;
+    };
+
     git = {
       enable = true;
       aliases = {
@@ -72,6 +76,7 @@ in {
 
     starship = {
       enable = true;
+      enableBashIntegration = true;
       enableZshIntegration = true;
       settings = {
         add_newline = true;
