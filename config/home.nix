@@ -28,6 +28,10 @@ in {
     texlive.combined.scheme-medium
   ];
 
+  home.file."${config.xdg.configHome}/nvim" = {
+    source = "${dotfiles_dir}/config/nvim";
+  };
+
   programs = {
     git = {
       enable = true;
@@ -64,7 +68,6 @@ in {
       vimAlias = true;
       # symlink "vimdiff" to nvim -d
       vimdiffAlias = true;
-      configure = {};
     };
 
     starship = {
