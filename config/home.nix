@@ -4,6 +4,7 @@ let
   username = "nicolabruhin";
   home_dir = "/Users/nicolabruhin";
   dotfiles_dir = "${home_dir}/.dotfiles";
+  theme = "tomorrow-night-eighties";
 in {
   home = {
     username = "${username}";
@@ -228,6 +229,7 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
 fi
 '';
       initExtra = ''
+        base16_${theme}
         setopt NOTIFY              # report the status of background jobs immediately
         setopt PROMPTSUBST         # enable command substitution in prompt
       '';
