@@ -116,10 +116,9 @@
 
         plate = "template.sh";
 
-        # cd to projects dir
+        # TODO don't hardcode these 2
         proj = "cd $HOME/proj";
-        # cd to dotfiles dir
-        dotfiles = "cd $DOTFILES_DIR";
+        dotfiles = "cd $HOME/.dotfiles";
         # cd to home dir
         home = "cd $HOME";
 
@@ -141,6 +140,16 @@
             repo = "up";
             rev = "a1fe10fababd58567880380938fdae6d6b9d5bdf";
             sha256 = "8379baf90bbc1aee582bb097fa41899f65425f376d521eb8c411b297e9686464";
+          };
+        }
+        {
+          name = "base16-shell";
+          file = "base16-shell.plugin.zsh";
+          src = pkgs.fetchFromGitHub {
+            owner = "tinted-theming";
+            repo = "base16-shell";
+            rev = "42918118727560723e46fd5e40fe49a5df2f9d30";
+            sha256 = "d31ac0d0439d09c012d148456792e0e2353d8b4fc54ef27ebc80f9f1071850cd";
           };
         }
       ];
@@ -203,24 +212,9 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
 fi
 '';
       initExtra = ''
-DOTFILES_DIR=$HOME/.dotfiles
-
-# ------- Terminal Style ------- #
-#
-# Use a base16 style
-# TODO: write better documentation
-
-BASE16_SHELL=$DOTFILES_DIR/"dependencies/base16-shell"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
-	base16_tomorrow-night-eighties
-
-# ------- Miscellaneous Settings ------ #
-
-setopt NOTIFY              # report the status of background jobs immediately
-setopt PROMPTSUBST         # enable command substitution in prompt
-'';
+        setopt NOTIFY              # report the status of background jobs immediately
+        setopt PROMPTSUBST         # enable command substitution in prompt
+      '';
     };
   };
 

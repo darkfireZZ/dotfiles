@@ -1,4 +1,5 @@
 /dependencies
-/.config/git
-/.config/kitty
-/.config/starship.toml
+/.config/*
+!/.config/nvim
+!/.config/nixpkgs
+!/.config/tinted-theming/theme_name
