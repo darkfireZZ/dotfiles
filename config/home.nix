@@ -1,9 +1,13 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
-{
+let
+  username = "nicolabruhin";
+  home_dir = "/Users/nicolabruhin";
+  dotfiles_dir = "${home_dir}/.dotfiles";
+in {
   home = {
-    username = "nicolabruhin";
-    homeDirectory = "/Users/nicolabruhin";
+    username = "${username}";
+    homeDirectory = "${home_dir}";
   };
 
   home.packages = with pkgs; [
@@ -13,7 +17,6 @@
     fd
     ripgrep
     # dev
-    neovim
     tokei
     python310Packages.grip
     # other things
@@ -52,12 +55,23 @@
       };
     };
 
+    neovim = {
+      enable = true;
+      # symlink "vi" to nvim
+      viAlias = true;
+      # symlink "vim" to nvim
+      vimAlias = true;
+      # symlink "vimdiff" to nvim -d
+      vimdiffAlias = true;
+      configure = {};
+    };
+
     starship = {
       enable = true;
       enableZshIntegration = true;
       settings = {
         add_newline = true;
-        format = pkgs.lib.strings.concatStrings [
+        format = lib.strings.concatStrings [
           "[┌──\\($username$hostname\\)-\\[$directory\\]$git_branch\n](green)"
           "[└─[\\$](bold blue)](bold green) "
         ];
@@ -113,6 +127,8 @@
 
         # clear
         c = "clear";                 # alternative for clear
+
+	hm = "home-manager -f ${dotfiles_dir}/config/home.nix";
 
         plate = "template.sh";
 
