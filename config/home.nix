@@ -18,6 +18,7 @@ in {
     fd
     ripgrep
     # dev
+    neovim
     tokei
     python310Packages.grip
     # other things
@@ -28,6 +29,7 @@ in {
     texlive.combined.scheme-medium
   ];
 
+  # neovim config
   home.file."${config.xdg.configHome}/nvim" = {
     source = "${dotfiles_dir}/config/nvim";
   };
@@ -62,16 +64,6 @@ in {
         window_margin_width = 7;
         hide_window_decorations = "titlebar-only";
       };
-    };
-
-    neovim = {
-      enable = true;
-      # symlink "vi" to nvim
-      viAlias = true;
-      # symlink "vim" to nvim
-      vimAlias = true;
-      # symlink "vimdiff" to nvim -d
-      vimdiffAlias = true;
     };
 
     starship = {
@@ -146,6 +138,10 @@ in {
         dotfiles = "cd $HOME/.dotfiles";
         # cd to home dir
         home = "cd $HOME";
+
+        vi = "nvim";
+        vim = "nvim";
+        vimdiff = "nvim -d";
 
         # update nix install on macos
         # taken from the manual (2022/10/17):
