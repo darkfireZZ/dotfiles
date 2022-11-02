@@ -324,7 +324,7 @@ c.content.blocking.whitelist = []
 ## first ask the application cache for the contents, before hitting the
 ## network.
 ## Type: Bool
-c.content.cache.appcache = True
+# c.content.cache.appcache = True
 
 ## Maximum number of pages to hold in the global memory page cache. The
 ## page cache allows for a nicer user experience when navigating forth or
@@ -332,7 +332,7 @@ c.content.cache.appcache = True
 ## to _n_ pages. For more information about the feature, please refer to:
 ## https://webkit.org/blog/427/webkit-page-cache-i-the-basics/
 ## Type: Int
-c.content.cache.maximum_pages = 0
+# c.content.cache.maximum_pages = 0
 
 ## Size (in bytes) of the HTTP network cache. Null to use the default
 ## value. With QtWebEngine, the maximum supported value is 2147483647 (~2
@@ -367,11 +367,11 @@ c.content.canvas_reading = True
 ##   - no-3rdparty: Accept cookies from the same origin only. This is known to break some sites, such as GMail.
 ##   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain. On QtWebEngine, this is the same as no-3rdparty.
 ##   - never: Don't accept cookies at all.
-c.content.cookies.accept = 'never'
+c.content.cookies.accept = 'no-3rdparty'
 
 ## Store cookies.
 ## Type: Bool
-c.content.cookies.store = False
+c.content.cookies.store = True
 
 ## Default encoding to use for websites. The encoding must be a string
 ## describing an encoding such as _utf-8_, _iso-8859-1_, etc.
@@ -393,7 +393,7 @@ c.content.dns_prefetch = True
 ## Expand each subframe to its contents. This will flatten all the frames
 ## to become one scrollable page.
 ## Type: Bool
-c.content.frame_flattening = False
+# c.content.frame_flattening = False
 
 ## Set fullscreen notification overlay timeout in milliseconds. If set to
 ## 0, no overlay will be displayed.
@@ -476,7 +476,7 @@ c.content.javascript.can_access_clipboard = False
 
 ## Allow JavaScript to close tabs.
 ## Type: Bool
-c.content.javascript.can_close_tabs = False
+# c.content.javascript.can_close_tabs = False
 
 ## Allow JavaScript to open new tabs without user interaction.
 ## Type: Bool
@@ -484,7 +484,7 @@ c.content.javascript.can_open_tabs_automatically = False
 
 ## Enable JavaScript.
 ## Type: Bool
-c.content.javascript.enabled = False
+c.content.javascript.enabled = True
 
 ## Log levels to use for JavaScript console logging messages. When a
 ## JavaScript message with the level given in the dictionary key is
@@ -644,7 +644,7 @@ c.content.proxy = 'system'
 
 ## Send DNS requests over the configured proxy.
 ## Type: Bool
-c.content.proxy_dns_requests = True
+# c.content.proxy_dns_requests = True
 
 ## Allow websites to register protocol handlers via
 ## `navigator.registerProtocolHandler`.
