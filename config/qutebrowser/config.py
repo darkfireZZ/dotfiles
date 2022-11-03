@@ -114,7 +114,7 @@ c.colors.webpage.darkmode.contrast = 0.0
 ## `colors.webpage.darkmode.threshold.background` to 205.  - "With
 ## selective inversion of everything": Combines the two variants   above.
 ## Type: Bool
-c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.enabled = False
 
 ## Which images to apply dark mode to. With QtWebEngine 5.15.0, this
 ## setting can cause frequent renderer process crashes due to a
