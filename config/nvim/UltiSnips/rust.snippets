@@ -18,6 +18,15 @@ impl FromStr for $1 {
 }
 endsnippet
 
+snippet TryFrom
+impl TryFrom<$1> for $2 {
+	type Error = $3;
+	fn try_from(value: $1) -> Result<Self, Self::Error> {
+		$0
+	}
+}
+endsnippet
+
 # ======= other stuff ======= #
 
 snippet derive
