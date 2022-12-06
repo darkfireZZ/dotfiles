@@ -18,6 +18,14 @@ impl FromStr for $1 {
 }
 endsnippet
 
+snippet From
+impl From<$1> for $2 {
+	fn from(value: $1) -> Self {
+		$0
+	}
+}
+endsnippet
+
 snippet TryFrom
 impl TryFrom<$1> for $2 {
 	type Error = $3;
