@@ -115,6 +115,10 @@ in {
         share = true; # share history between all sessions
       };
       shellAliases = {
+        # dev shortcuts
+        e = "$EDITOR";
+        g = "git";
+      
         # ls
         ls = "ls --color=auto";      # enable color support for ls
         sl = "ls";                   # also work in case of typo
@@ -125,7 +129,8 @@ in {
         al = "la";                   # also work in case of typo
         tree = "exa --tree";
 
-        # cd
+        # movement
+        u = "up";
         cb = "cd -";
 
         # recursively remove .DS_Store files (starting at the current directory)
@@ -182,21 +187,7 @@ in {
 
       envExtra = ''
 # Set the EDITOR environment variable
-# Set to the first editor in the following list that is installed on the system
-#  - nvim
-#  - vim
-#  - nano
-# Print an error message if none of the editors is found.
-if type "nvim" > /dev/null; then
-  export EDITOR=nvim
-elif type "vim" > /dev/null; then
-  export EDITOR=vim
-elif type "nano" > /dev/null; then
-  export EDITOR=nano
-else
-  echo "ERROR (from $0): Found none of the following editors: nvim, vim, \
-nano" 1>&2
-fi
+export EDITOR=nvim
 
 # set $VISUAL to the same editor as $EDITOR
 export VISUAL=$EDITOR
