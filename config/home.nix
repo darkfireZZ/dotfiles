@@ -34,10 +34,10 @@ in {
     source = "${dotfiles_dir}/config/nvim";
   };
 
-  # qutebrowser config
-  home.file.".qutebrowser" = {
-    source = "${dotfiles_dir}/config/qutebrowser";
-  };
+  # # qutebrowser config
+  # home.file.".qutebrowser" = {
+  #   source = "${dotfiles_dir}/config/qutebrowser";
+  # };
 
   programs = {
     bash = {
