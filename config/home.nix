@@ -26,7 +26,7 @@ in {
     htop
     imagemagick
     hyperfine
-    texlive.combined.scheme-medium
+    texlive.combined.scheme-full
   ];
 
   # neovim config
