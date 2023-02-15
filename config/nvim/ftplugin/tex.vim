@@ -1,4 +1,4 @@
-" Compile the current file to PDF using .dotfiles/bin/compile-latex.sh
+" Compile the current file to PDF using .dotfiles/scripts/compile-latex.sh
 :map <Space>c :execute "!compile-latex.sh " .. expand("%:p")<Enter>
 
 " Open the compiled PDF file
