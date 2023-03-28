@@ -84,6 +84,8 @@ filetype on             " enable filetype detection
 filetype plugin on      " load file-specific plugins
 filetype indent on      " load file-specific indentation
 
+" absolute line number next to cursor
+set number
 " relative line numbers
 set relativenumber
 
