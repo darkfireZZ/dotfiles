@@ -20,7 +20,6 @@ in {
     # dev
     neovim
     tokei
-    python310Packages.grip
     # other things
     curl
     htop
