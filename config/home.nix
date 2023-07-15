@@ -1,8 +1,8 @@
 { config, lib, pkgs, ... }:
 
 let
-  username = "nicolabruhin";
-  home_dir = "/Users/nicolabruhin";
+  username = "darkfire";
+  home_dir = "/Users/darkfire";
   dotfiles_dir = "${home_dir}/.dotfiles";
   theme = "tomorrow-night-eighties";
 in {
