@@ -5,6 +5,13 @@ let
   home_dir = "/Users/darkfire";
   dotfiles_dir = "${home_dir}/.dotfiles";
   theme = "tomorrow-night-eighties";
+  nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+    inherit pkgs;
+  };
+  nixpkgs-firefox-darwin = builtins.fetchGit {
+    url = "https://github.com/bandithedoge/nixpkgs-firefox-darwin";
+    ref = "main";
+  };
 in {
   home = {
     username = "${username}";
@@ -37,10 +44,59 @@ in {
   # home.file.".qutebrowser" = {
   #   source = "${dotfiles_dir}/config/qutebrowser";
   # };
+  
+  nixpkgs.overlays = [
+    (import "${nixpkgs-firefox-darwin}/overlay.nix")
+  ];
 
   programs = {
     bash = {
       enable = true;
+    };
+
+    firefox = {
+      enable = true;
+      package = pkgs.firefox-bin;
+      profiles.default = {
+        isDefault = true;
+        extensions = with nur.repos.rycee.firefox-addons; [
+          ublock-origin
+        ];
+        search = {
+          force = true;
+          engines = {
+            "Brave" = {
+              urls = [{
+                template = "https://search.brave.com/search?q={searchTerms}";
+              }];
+            };
+            "Bing".metaData.hidden = true;
+            "Google".metaData.hidden = true;
+            "eBay".metaData.hidden = true;
+          };
+          default = "Brave";
+          order = [
+            "Brave"
+            "Google"
+            "Bing"
+          ];
+        };
+        settings = {
+          "browser.startup.homepage" = "about:home";
+          "extensions.pocket.enabled" = false;
+          "privacy.trackingprotection.enabled" = true;
+          # Disable autofill of forms
+          "browser.formfill.enable" = false;
+          # Disable page history
+          "places.history.enabled" = false;
+          # Hide firefox view
+          "browser.tabs.firefox-view" = false;
+          # Always ask where to save downloads
+          "browser.download.useDownloadDir" = false;
+          # Don't allow Mozilla to install studies
+          "app.shield.optoutstudies.enabled" = false;
+        };
+      };
     };
 
     git = {
