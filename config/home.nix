@@ -183,8 +183,8 @@ in {
         u = "up";
         cb = "cd -";
 
-        # recursively remove .DS_Store files (starting at the current directory)
-        cleanupds = "find . -type f -name '*.DS_Store' -ls -delete";
+        # recursively remove .DS_Store files (starting at the root directory)
+        cleanupds = "find / -type f -name '*.DS_Store' -ls -delete";
 
         # clear
         c = "clear";                 # alternative for clear
