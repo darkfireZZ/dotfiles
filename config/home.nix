@@ -201,8 +201,6 @@ in {
         # TODO don't hardcode these 2
         proj = "cd $HOME/proj";
         dotfiles = "cd $HOME/.dotfiles";
-        # cd to home dir
-        home = "cd $HOME";
 
         vi = "nvim";
         vim = "nvim";
