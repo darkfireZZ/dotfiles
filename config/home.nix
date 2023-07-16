@@ -243,24 +243,10 @@ in {
       envExtra = ''
 # Set the EDITOR environment variable
 export EDITOR=nvim
-
 # set $VISUAL to the same editor as $EDITOR
 export VISUAL=$EDITOR
 
-# ------- PAGER	------- #
-
-# Set the PAGER environment variable
-# Set to the first pager in the following list that is installed on the system
-#  - less
-#  - more
-#  Print an error message if none of the pagers is found.
-if type "less" > /dev/null; then
-  export PAGER=less
-elif type "more" > /dev/null; then
-  export PAGER=more
-else
-  echo "ERROR (from $0): Found none of the following pagers: less, more" 1>&2
-fi
+export PAGER="bat --plain"
 
 # ------- PATH ------- #
 
