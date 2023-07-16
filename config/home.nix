@@ -196,8 +196,6 @@ in {
 
 	hm = "home-manager -f ${dotfiles_dir}/config/home.nix";
 
-        plate = "template.sh";
-
         # TODO don't hardcode these 2
         proj = "cd $HOME/proj";
         dotfiles = "cd $HOME/.dotfiles";
