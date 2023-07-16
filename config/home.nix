@@ -91,6 +91,8 @@ in {
           "browser.download.useDownloadDir" = false;
           # Don't allow Mozilla to install studies
           "app.shield.optoutstudies.enabled" = false;
+          # Always hide the booksmarks toolbar
+          "browser.toolbars.bookmarks.visibility" = "never";
         };
       };
     };
