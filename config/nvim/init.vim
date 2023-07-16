@@ -104,6 +104,3 @@ set tabstop=4
 set shiftwidth=4
 " On pressing tab, insert spaces
 set expandtab
-
-" set indent for tex files to 2
-autocmd FileType tex set shiftwidth=2 tabstop=2
