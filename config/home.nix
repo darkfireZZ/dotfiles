@@ -237,9 +237,6 @@ export PAGER="bat --plain"
 
 # ------- PATH ------- #
 
-# add all the scripts in the dotfiles to PATH
-export PATH=$PATH:"$HOME/.dotfiles/scripts"
-
 # add rust's cargo directory to PATH if the directory exists
 cargo_dir="$HOME/.cargo/env"
 if [ -f "$cargo_dir" ]; then
