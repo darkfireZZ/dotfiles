@@ -39,11 +39,6 @@ in {
   home.file."${config.xdg.configHome}/nvim" = {
     source = "${dotfiles_dir}/config/nvim";
   };
-
-  # # qutebrowser config
-  # home.file.".qutebrowser" = {
-  #   source = "${dotfiles_dir}/config/qutebrowser";
-  # };
   
   nixpkgs.overlays = [
     (import "${nixpkgs-firefox-darwin}/overlay.nix")
