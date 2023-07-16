@@ -23,6 +23,7 @@ in {
     bat
     exa
     fd
+    jq
     ripgrep
     # dev
     neovim
