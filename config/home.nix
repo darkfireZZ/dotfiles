@@ -28,6 +28,7 @@ in {
     # dev
     neovim
     tokei
+    rustup
     # other things
     curl
     htop
