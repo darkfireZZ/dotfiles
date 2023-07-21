@@ -34,6 +34,7 @@ in {
     htop
     imagemagick
     hyperfine
+    poppler_utils
     texlive.combined.scheme-full
   ];
 
