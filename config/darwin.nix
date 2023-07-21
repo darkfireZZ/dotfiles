@@ -11,6 +11,7 @@
       "veracrypt"
       "keepassxc"
       "kitty"
+      "libreoffice"
     ];
   };
   
