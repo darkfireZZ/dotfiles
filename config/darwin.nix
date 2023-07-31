@@ -8,10 +8,11 @@
   homebrew = {
     enable = true;
     casks = [
-      "veracrypt"
       "keepassxc"
       "kitty"
       "libreoffice"
+      "signal"
+      "veracrypt"
     ];
   };
   
