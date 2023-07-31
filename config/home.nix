@@ -12,6 +12,11 @@ let
     url = "https://github.com/bandithedoge/nixpkgs-firefox-darwin";
     ref = "main";
   };
+
+  python = pkgs.python3Full;
+  pythonWithPackages = python.withPackages (pythonPkgs: with pythonPkgs; [
+    pip
+  ]); 
 in {
   home = {
     username = "${username}";
@@ -27,6 +32,7 @@ in {
     ripgrep
     # dev
     neovim
+    pythonWithPackages
     tokei
     rustup
     # other things
