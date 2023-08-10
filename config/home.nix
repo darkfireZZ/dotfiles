@@ -38,8 +38,8 @@ in {
     # other things
     curl
     htop
-    imagemagick
     hyperfine
+    imagemagick
     poppler_utils
     texlive.combined.scheme-full
   ];
@@ -87,10 +87,15 @@ in {
         };
         settings = {
           "browser.startup.homepage" = "about:home";
+          # Don't show warning when opening about:config
+          "browser.aboutConfig.showWarning" = false;
+          # Disable firefox pocket
           "extensions.pocket.enabled" = false;
           "privacy.trackingprotection.enabled" = true;
           # Disable autofill of forms
           "browser.formfill.enable" = false;
+          # Don't ask to save logins and passwords for websites
+          "signon.rememberSignons" = false;
           # Disable page history
           "places.history.enabled" = false;
           # Hide firefox view
