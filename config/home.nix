@@ -106,6 +106,10 @@ in {
           "app.shield.optoutstudies.enabled" = false;
           # Always hide the booksmarks toolbar
           "browser.toolbars.bookmarks.visibility" = "never";
+          # Don't show suggested pages on about:home
+          "browser.newtabpage.activity-stream.feeds.topsites" = false;
+          # Hide toolbar on the top if in fullscreen mode
+          "browser.fullscreen.autohide" = true;
         };
       };
     };
