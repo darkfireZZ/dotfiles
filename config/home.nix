@@ -23,6 +23,8 @@ in {
     homeDirectory = "${home_dir}";
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   home.packages = with pkgs; [
     # files stuff
     bat
@@ -64,7 +66,18 @@ in {
       profiles.default = {
         isDefault = true;
         extensions = with nur.repos.rycee.firefox-addons; [
+          # ad blocker
           ublock-origin
+          # allows you to access paywalled web pages
+          # bypass-paywalls-clean # currently not working, TODO fix
+          # hide cookie banners
+          istilldontcareaboutcookies
+          # allows finer control of video speed
+          videospeed
+          # Vim keebindings for firefox
+          tridactyl
+          # hide suggestions, comments and other distractions on youtube
+          youtube-recommended-videos
         ];
         search = {
           force = true;
