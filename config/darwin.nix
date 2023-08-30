@@ -12,6 +12,7 @@
       "kitty"
       "libreoffice"
       "signal"
+      "sioyek"
       "veracrypt"
     ];
   };
