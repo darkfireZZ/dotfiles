@@ -110,6 +110,15 @@ in {
           "browser.newtabpage.activity-stream.feeds.topsites" = false;
           # Hide toolbar on the top if in fullscreen mode
           "browser.fullscreen.autohide" = true;
+
+          # Clear most browser data when closing firefox
+          "privacy.clearOnShutdown.cache" = true;
+          "privacy.clearOnShutdown.cookies" = true;
+          "privacy.clearOnShutdown.downloads" = true;
+          "privacy.clearOnShutdown.formdata" = true;
+          "privacy.clearOnShutdown.history" = true;
+          "privacy.clearOnShutdown.sessions" = true;
+          "privacy.clearOnShutdown.siteSettings" = true;
         };
       };
     };
