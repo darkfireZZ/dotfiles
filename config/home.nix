@@ -24,8 +24,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "darkfireZZ";
       repo = "tactful";
-      rev = "c8ae48baee14acf8ffa57a05d1273520565d47e3";
-      sha256 = "sha256-djnuRIhbdSdd/EqKTrWSZDAqghFiQFBIg9Z49HURckk=";
+      rev = "dad531b504ecd15cd0ff8b631f8b468fd44cdd84";
+      sha256 = "sha256-pdUtAgwL8qS5Mv2W+MZqkUezWARFzkB4HCWDVEYNMsA=";
     };
 
     cargoSha256 = "sha256-PaRBhrJnOzt4T6alb/bPC2JP04cPYekEXGOMbJX/EYg=";
