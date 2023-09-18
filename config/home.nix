@@ -36,9 +36,6 @@ in {
     homeDirectory = "${home_dir}";
   };
 
-  # TODO return to use only free packages
-  nixpkgs.config.allowUnfree = true;
-
   home.packages = with pkgs; [
     bat # cat but better
     curl
@@ -93,8 +90,6 @@ in {
           videospeed
           # Vim keebindings for firefox
           tridactyl
-          # hide suggestions, comments and other distractions on youtube
-          youtube-recommended-videos
         ];
         search = {
           force = true;
