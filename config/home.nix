@@ -17,12 +17,27 @@ let
   pythonWithPackages = python.withPackages (pythonPkgs: with pythonPkgs; [
     pip
   ]); 
+
+  tactful = pkgs.rustPlatform.buildRustPackage rec {
+    pname = "tactful";
+    version = "0.1.0";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "darkfireZZ";
+      repo = pname;
+      rev = version;
+      sha256 = "sha256-djnuRIhbdSdd/EqKTrWSZDAqghFiQFBIg9Z49HURckk=";
+    };
+
+    cargoSha256 = "sha256-lBPGYDvoVzCc5CUD76LIxBoW+u9+ZkANy27PITprAfQ=";
+  };
 in {
   home = {
     username = "${username}";
     homeDirectory = "${home_dir}";
   };
 
+  # TODO return to use only free packages
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
@@ -43,6 +58,7 @@ in {
     hyperfine
     imagemagick
     poppler_utils
+    tactful
     texlive.combined.scheme-full
   ];
 
