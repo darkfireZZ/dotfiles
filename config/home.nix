@@ -82,8 +82,8 @@ in {
         extensions = with nur.repos.rycee.firefox-addons; [
           # ad blocker
           ublock-origin
-          # allows you to access paywalled web pages
-          # bypass-paywalls-clean # currently not working, TODO fix
+          # allows access to paywalled web pages
+          bypass-paywalls-clean
           # hide cookie banners
           istilldontcareaboutcookies
           # allows finer control of video speed
