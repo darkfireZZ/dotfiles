@@ -66,6 +66,11 @@ in {
   home.file."${config.xdg.configHome}/nvim" = {
     source = "${dotfiles_dir}/config/nvim";
   };
+
+  # tactful config
+  home.file."${config.xdg.configHome}/tactful.toml" = {
+    text = ''store_path = "${home_dir}/priv/contacts.json"'';
+  };
   
   nixpkgs.overlays = [
     (import "${nixpkgs-firefox-darwin}/overlay.nix")
