@@ -41,25 +41,22 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-    # files stuff
-    bat
-    exa
-    fd
-    jq
-    ripgrep
-    # dev
-    neovim
-    pythonWithPackages
-    tokei
-    rustup
-    # other things
+    bat # cat but better
     curl
+    exa # ls but better
+    fd # find but better
     htop
-    hyperfine
+    hyperfine # benchmarking tool
     imagemagick
-    poppler_utils
-    tactful
-    texlive.combined.scheme-full
+    jq # commandline JSON processor
+    neovim # text editor
+    pythonWithPackages
+    ripgrep # grep but better
+    rustup
+    tactful # contact manager
+    texlive.combined.scheme-full # LaTeX
+    tokei # Count code lines
+    poppler_utils # PDF utilities
   ];
 
   # neovim config
