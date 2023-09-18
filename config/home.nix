@@ -19,17 +19,16 @@ let
   ]); 
 
   tactful = pkgs.rustPlatform.buildRustPackage rec {
-    pname = "tactful";
-    version = "0.1.0";
+    name = "tactful";
 
     src = pkgs.fetchFromGitHub {
       owner = "darkfireZZ";
-      repo = pname;
-      rev = version;
+      repo = "tactful";
+      rev = "c8ae48baee14acf8ffa57a05d1273520565d47e3";
       sha256 = "sha256-djnuRIhbdSdd/EqKTrWSZDAqghFiQFBIg9Z49HURckk=";
     };
 
-    cargoSha256 = "sha256-lBPGYDvoVzCc5CUD76LIxBoW+u9+ZkANy27PITprAfQ=";
+    cargoSha256 = "sha256-PaRBhrJnOzt4T6alb/bPC2JP04cPYekEXGOMbJX/EYg=";
   };
 in {
   home = {
