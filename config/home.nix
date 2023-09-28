@@ -135,6 +135,8 @@ in {
           "browser.newtabpage.activity-stream.feeds.topsites" = false;
           # Hide toolbar on the top if in fullscreen mode
           "browser.fullscreen.autohide" = true;
+          # Don't ever send the referer HTTP header
+          "network.http.sendRefererHeader" = 0;
 
           # Clear most browser data when closing firefox
           "privacy.clearOnShutdown.cache" = true;
