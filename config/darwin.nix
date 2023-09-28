@@ -14,6 +14,7 @@
       "signal"
       "sioyek"
       "veracrypt"
+      "docker"
     ];
   };
   
