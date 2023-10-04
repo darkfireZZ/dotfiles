@@ -136,7 +136,10 @@ in {
           # Hide toolbar on the top if in fullscreen mode
           "browser.fullscreen.autohide" = true;
           # Don't ever send the referer HTTP header
-          "network.http.sendRefererHeader" = 0;
+          # Send the "Referer" HTTP header only on same-origin
+          # Disabling the referer header completely (using network.http.sendRefererHeader = 0)
+          # breaks some webpages.
+          "network.http.referer.XOriginPolicy" = 2;
 
           # Clear most browser data when closing firefox
           "privacy.clearOnShutdown.cache" = true;
