@@ -2,34 +2,34 @@
 
 let
   username = "darkfire";
-  home_dir = "/Users/darkfire";
+  home_dir = "/home/darkfire";
   dotfiles_dir = "${home_dir}/.dotfiles";
   theme = "tomorrow-night-eighties";
   nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
     inherit pkgs;
   };
-  nixpkgs-firefox-darwin = builtins.fetchGit {
-    url = "https://github.com/bandithedoge/nixpkgs-firefox-darwin";
-    ref = "main";
-  };
+  # nixpkgs-firefox-darwin = builtins.fetchGit {
+  #   url = "https://github.com/bandithedoge/nixpkgs-firefox-darwin";
+  #   ref = "main";
+  # };
 
   python = pkgs.python3Full;
   pythonWithPackages = python.withPackages (pythonPkgs: with pythonPkgs; [
     pip
   ]); 
 
-  tactful = pkgs.rustPlatform.buildRustPackage rec {
-    name = "tactful";
-
-    src = pkgs.fetchFromGitHub {
-      owner = "darkfireZZ";
-      repo = "tactful";
-      rev = "dad531b504ecd15cd0ff8b631f8b468fd44cdd84";
-      sha256 = "sha256-pdUtAgwL8qS5Mv2W+MZqkUezWARFzkB4HCWDVEYNMsA=";
-    };
-
-    cargoSha256 = "sha256-PaRBhrJnOzt4T6alb/bPC2JP04cPYekEXGOMbJX/EYg=";
-  };
+  # tactful = pkgs.rustPlatform.buildRustPackage rec {
+  #   name = "tactful";
+  # 
+  #   src = pkgs.fetchFromGitHub {
+  #     owner = "darkfireZZ";
+  #     repo = "tactful";
+  #     rev = "dad531b504ecd15cd0ff8b631f8b468fd44cdd84";
+  #     sha256 = "sha256-pdUtAgwL8qS5Mv2W+MZqkUezWARFzkB4HCWDVEYNMsA=";
+  #   };
+  # 
+  #   cargoSha256 = "sha256-PaRBhrJnOzt4T6alb/bPC2JP04cPYekEXGOMbJX/EYg=";
+  # };
 in {
   home = {
     username = "${username}";
@@ -49,7 +49,7 @@ in {
     pythonWithPackages
     ripgrep # grep but better
     rustup
-    tactful # contact manager
+    # tactful # contact manager
     texlive.combined.scheme-full # LaTeX
     tokei # Count code lines
     poppler_utils # PDF utilities
@@ -65,93 +65,93 @@ in {
     text = ''store_path = "${home_dir}/priv/contacts.json"'';
   };
   
-  nixpkgs.overlays = [
-    (import "${nixpkgs-firefox-darwin}/overlay.nix")
-  ];
+  # nixpkgs.overlays = [
+  #   (import "${nixpkgs-firefox-darwin}/overlay.nix")
+  # ];
 
   programs = {
     bash = {
       enable = true;
     };
 
-    firefox = {
-      enable = true;
-      package = pkgs.firefox-bin;
-      profiles.default = {
-        isDefault = true;
-        extensions = with nur.repos.rycee.firefox-addons; [
-          # ad blocker
-          ublock-origin
-          # allows access to paywalled web pages
-          bypass-paywalls-clean
-          # hide cookie banners
-          istilldontcareaboutcookies
-          # allows finer control of video speed
-          videospeed
-          # Vim keebindings for firefox
-          tridactyl
-        ];
-        search = {
-          force = true;
-          engines = {
-            "Brave" = {
-              urls = [{
-                template = "https://search.brave.com/search?q={searchTerms}";
-              }];
-            };
-            "Bing".metaData.hidden = true;
-            "Google".metaData.hidden = true;
-            "eBay".metaData.hidden = true;
-          };
-          default = "Brave";
-          order = [
-            "Brave"
-            "Google"
-            "Bing"
-          ];
-        };
-        settings = {
-          "browser.startup.homepage" = "about:home";
-          # Don't show warning when opening about:config
-          "browser.aboutConfig.showWarning" = false;
-          # Disable firefox pocket
-          "extensions.pocket.enabled" = false;
-          "privacy.trackingprotection.enabled" = true;
-          # Disable autofill of forms
-          "browser.formfill.enable" = false;
-          # Don't ask to save logins and passwords for websites
-          "signon.rememberSignons" = false;
-          # Disable page history
-          "places.history.enabled" = false;
-          # Hide firefox view
-          "browser.tabs.firefox-view" = false;
-          # Always ask where to save downloads
-          "browser.download.useDownloadDir" = false;
-          # Don't allow Mozilla to install studies
-          "app.shield.optoutstudies.enabled" = false;
-          # Always hide the booksmarks toolbar
-          "browser.toolbars.bookmarks.visibility" = "never";
-          # Don't show suggested pages on about:home
-          "browser.newtabpage.activity-stream.feeds.topsites" = false;
-          # Hide toolbar on the top if in fullscreen mode
-          "browser.fullscreen.autohide" = true;
-          # Don't ever send the referer HTTP header
-          # Send the "Referer" HTTP header only on same-origin
-          # Disabling the referer header completely (using network.http.sendRefererHeader = 0)
-          # breaks some webpages.
-          "network.http.referer.XOriginPolicy" = 2;
-
-          # Clear most browser data when closing firefox
-          "privacy.clearOnShutdown.cache" = true;
-          "privacy.clearOnShutdown.cookies" = true;
-          "privacy.clearOnShutdown.downloads" = true;
-          "privacy.clearOnShutdown.formdata" = true;
-          "privacy.clearOnShutdown.history" = true;
-          "privacy.clearOnShutdown.sessions" = true;
-          "privacy.clearOnShutdown.siteSettings" = true;
-        };
-      };
-    };
+    # firefox = {
+    #   enable = true;
+    #   package = pkgs.firefox-bin;
+    #   profiles.default = {
+    #     isDefault = true;
+    #     extensions = with nur.repos.rycee.firefox-addons; [
+    #       # ad blocker
+    #       ublock-origin
+    #       # allows access to paywalled web pages
+    #       bypass-paywalls-clean
+    #       # hide cookie banners
+    #       istilldontcareaboutcookies
+    #       # allows finer control of video speed
+    #       videospeed
+    #       # Vim keebindings for firefox
+    #       tridactyl
+    #     ];
+    #     search = {
+    #       force = true;
+    #       engines = {
+    #         "Brave" = {
+    #           urls = [{
+    #             template = "https://search.brave.com/search?q={searchTerms}";
+    #           }];
+    #         };
+    #         "Bing".metaData.hidden = true;
+    #         "Google".metaData.hidden = true;
+    #         "eBay".metaData.hidden = true;
+    #       };
+    #       default = "Brave";
+    #       order = [
+    #         "Brave"
+    #         "Google"
+    #         "Bing"
+    #       ];
+    #     };
+    #     settings = {
+    #       "browser.startup.homepage" = "about:home";
+    #       # Don't show warning when opening about:config
+    #       "browser.aboutConfig.showWarning" = false;
+    #       # Disable firefox pocket
+    #       "extensions.pocket.enabled" = false;
+    #       "privacy.trackingprotection.enabled" = true;
+    #       # Disable autofill of forms
+    #       "browser.formfill.enable" = false;
+    #       # Don't ask to save logins and passwords for websites
+    #       "signon.rememberSignons" = false;
+    #       # Disable page history
+    #       "places.history.enabled" = false;
+    #       # Hide firefox view
+    #       "browser.tabs.firefox-view" = false;
+    #       # Always ask where to save downloads
+    #       "browser.download.useDownloadDir" = false;
+    #       # Don't allow Mozilla to install studies
+    #       "app.shield.optoutstudies.enabled" = false;
+    #       # Always hide the booksmarks toolbar
+    #       "browser.toolbars.bookmarks.visibility" = "never";
+    #       # Don't show suggested pages on about:home
+    #       "browser.newtabpage.activity-stream.feeds.topsites" = false;
+    #       # Hide toolbar on the top if in fullscreen mode
+    #       "browser.fullscreen.autohide" = true;
+    #       # Don't ever send the referer HTTP header
+    #       # Send the "Referer" HTTP header only on same-origin
+    #       # Disabling the referer header completely (using network.http.sendRefererHeader = 0)
+    #       # breaks some webpages.
+    #       "network.http.referer.XOriginPolicy" = 2;
+    # 
+    #       # Clear most browser data when closing firefox
+    #       "privacy.clearOnShutdown.cache" = true;
+    #       "privacy.clearOnShutdown.cookies" = true;
+    #       "privacy.clearOnShutdown.downloads" = true;
+    #       "privacy.clearOnShutdown.formdata" = true;
+    #       "privacy.clearOnShutdown.history" = true;
+    #       "privacy.clearOnShutdown.sessions" = true;
+    #       "privacy.clearOnShutdown.siteSettings" = true;
+    #     };
+    #   };
+    # };
 
     git = {
       enable = true;
@@ -321,5 +321,5 @@ fi
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "23.11";
+  home.stateVersion = "23.05";
 }
