@@ -55,15 +55,35 @@ in {
     poppler_utils # PDF utilities
   ];
 
-  # neovim config
-  home.file."${config.xdg.configHome}/nvim" = {
-    source = "${dotfiles_dir}/config/nvim";
-  };
+  home.file = (
+    {
+      # neovim config
+      "${config.xdg.configHome}/nvim" = {
+        source = "${dotfiles_dir}/config/nvim";
+      };
 
-  # tactful config
-  home.file."${config.xdg.configHome}/tactful.toml" = {
-    text = ''store_path = "${home_dir}/priv/contacts.json"'';
-  };
+      # tactful config
+      "${config.xdg.configHome}/tactful.toml" = {
+        text = ''store_path = "${home_dir}/priv/contacts.json"'';
+      };
+    } // (
+    let
+      firefox_dir = "${home_dir}/.mozilla/firefox";
+      firefox_config = import ./firefox/firefox.nix pkgs;
+    in {
+      "${firefox_dir}/profiles.ini".text = ''
+        [General]
+        StartWithLastProfile=1
+
+        [Profile0]
+        Name=default
+        IsRelative=1
+        Path=profiles/default
+        Default=1
+      '';
+      "${firefox_dir}/profiles/default/user.js".source = "${firefox_config}/user.js";
+    })
+  );
   
   # nixpkgs.overlays = [
   #   (import "${nixpkgs-firefox-darwin}/overlay.nix")
