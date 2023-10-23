@@ -41,6 +41,7 @@ in {
     curl
     exa # ls but better
     fd # find but better
+    file
     htop
     hyperfine # benchmarking tool
     imagemagick
