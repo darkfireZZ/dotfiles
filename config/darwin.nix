@@ -15,6 +15,7 @@
       "sioyek"
       "veracrypt"
       "docker"
+      "alt-tab"
     ];
   };
   
