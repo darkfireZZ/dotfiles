@@ -1,13 +1,12 @@
 { config, lib, pkgs, ... }:
-
+let
+  home_dir = "/home/darkfire";
+in
+lib.attrsets.recursiveUpdate (
 let
   username = "darkfire";
-  home_dir = "/home/darkfire";
   dotfiles_dir = "${home_dir}/.dotfiles";
   theme = "tomorrow-night-eighties";
-  nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-    inherit pkgs;
-  };
   # nixpkgs-firefox-darwin = builtins.fetchGit {
   #   url = "https://github.com/bandithedoge/nixpkgs-firefox-darwin";
   #   ref = "main";
@@ -56,35 +55,15 @@ in {
     poppler_utils # PDF utilities
   ];
 
-  home.file = (
-    {
-      # neovim config
-      "${config.xdg.configHome}/nvim" = {
-        source = "${dotfiles_dir}/config/nvim";
-      };
+  # tactful config
+  home.file."${config.xdg.configHome}/tactful.toml" = {
+    text = ''store_path = "${home_dir}/priv/contacts.json"'';
+  };
 
-      # tactful config
-      "${config.xdg.configHome}/tactful.toml" = {
-        text = ''store_path = "${home_dir}/priv/contacts.json"'';
-      };
-    } // (
-    let
-      firefox_dir = "${home_dir}/.mozilla/firefox";
-      firefox_config = import ./firefox/firefox.nix pkgs;
-    in {
-      "${firefox_dir}/profiles.ini".text = ''
-        [General]
-        StartWithLastProfile=1
-
-        [Profile0]
-        Name=default
-        IsRelative=1
-        Path=profiles/default
-        Default=1
-      '';
-      "${firefox_dir}/profiles/default/user.js".source = "${firefox_config}/user.js";
-    })
-  );
+  # neovim config
+  home.file."${config.xdg.configHome}/nvim" = {
+    source = "${dotfiles_dir}/config/nvim";
+  };
   
   # nixpkgs.overlays = [
   #   (import "${nixpkgs-firefox-darwin}/overlay.nix")
@@ -94,85 +73,6 @@ in {
     bash = {
       enable = true;
     };
-
-    # firefox = {
-    #   enable = true;
-    #   package = pkgs.firefox-bin;
-    #   profiles.default = {
-    #     isDefault = true;
-    #     extensions = with nur.repos.rycee.firefox-addons; [
-    #       # ad blocker
-    #       ublock-origin
-    #       # allows access to paywalled web pages
-    #       bypass-paywalls-clean
-    #       # hide cookie banners
-    #       istilldontcareaboutcookies
-    #       # allows finer control of video speed
-    #       videospeed
-    #       # Vim keebindings for firefox
-    #       tridactyl
-    #     ];
-    #     search = {
-    #       force = true;
-    #       engines = {
-    #         "Brave" = {
-    #           urls = [{
-    #             template = "https://search.brave.com/search?q={searchTerms}";
-    #           }];
-    #         };
-    #         "Bing".metaData.hidden = true;
-    #         "Google".metaData.hidden = true;
-    #         "eBay".metaData.hidden = true;
-    #       };
-    #       default = "Brave";
-    #       order = [
-    #         "Brave"
-    #         "Google"
-    #         "Bing"
-    #       ];
-    #     };
-    #     settings = {
-    #       "browser.startup.homepage" = "about:home";
-    #       # Don't show warning when opening about:config
-    #       "browser.aboutConfig.showWarning" = false;
-    #       # Disable firefox pocket
-    #       "extensions.pocket.enabled" = false;
-    #       "privacy.trackingprotection.enabled" = true;
-    #       # Disable autofill of forms
-    #       "browser.formfill.enable" = false;
-    #       # Don't ask to save logins and passwords for websites
-    #       "signon.rememberSignons" = false;
-    #       # Disable page history
-    #       "places.history.enabled" = false;
-    #       # Hide firefox view
-    #       "browser.tabs.firefox-view" = false;
-    #       # Always ask where to save downloads
-    #       "browser.download.useDownloadDir" = false;
-    #       # Don't allow Mozilla to install studies
-    #       "app.shield.optoutstudies.enabled" = false;
-    #       # Always hide the booksmarks toolbar
-    #       "browser.toolbars.bookmarks.visibility" = "never";
-    #       # Don't show suggested pages on about:home
-    #       "browser.newtabpage.activity-stream.feeds.topsites" = false;
-    #       # Hide toolbar on the top if in fullscreen mode
-    #       "browser.fullscreen.autohide" = true;
-    #       # Don't ever send the referer HTTP header
-    #       # Send the "Referer" HTTP header only on same-origin
-    #       # Disabling the referer header completely (using network.http.sendRefererHeader = 0)
-    #       # breaks some webpages.
-    #       "network.http.referer.XOriginPolicy" = 2;
-    # 
-    #       # Clear most browser data when closing firefox
-    #       "privacy.clearOnShutdown.cache" = true;
-    #       "privacy.clearOnShutdown.cookies" = true;
-    #       "privacy.clearOnShutdown.downloads" = true;
-    #       "privacy.clearOnShutdown.formdata" = true;
-    #       "privacy.clearOnShutdown.history" = true;
-    #       "privacy.clearOnShutdown.sessions" = true;
-    #       "privacy.clearOnShutdown.siteSettings" = true;
-    #     };
-    #   };
-    # };
 
     git = {
       enable = true;
@@ -343,4 +243,4 @@ fi
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "23.05";
-}
+}) (import ./firefox/firefox.nix { inherit pkgs home_dir; })
