@@ -37,7 +37,7 @@ in {
         videospeed
         # Vim keebindings for firefox
         tridactyl
-     ];
+      ];
       search = {
         force = true;
         engines = {
