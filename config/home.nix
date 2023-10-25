@@ -35,6 +35,10 @@ in {
     homeDirectory = "${home_dir}";
   };
 
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "veracrypt"
+  ];
+
   home.packages = with pkgs; [
     bat # cat but better
     curl
@@ -45,6 +49,7 @@ in {
     hyperfine # benchmarking tool
     imagemagick
     jq # commandline JSON processor
+    keepassxc
     neovim # text editor
     pythonWithPackages
     ripgrep # grep but better
@@ -53,6 +58,7 @@ in {
     texlive.combined.scheme-full # LaTeX
     tokei # Count code lines
     poppler_utils # PDF utilities
+    veracrypt
   ];
 
   # tactful config
