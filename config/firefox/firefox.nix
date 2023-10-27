@@ -38,19 +38,17 @@ in {
         # Vim keebindings for firefox
         tridactyl
       ];
-      search = {
-        force = true;
-        engines = {
-          "Brave" = {
-            urls = [{
-              template = "https://search.brave.com/search?q={searchTerms}";
-            }];
-          };
-        };
-        default = "Brave";
-      };
     };
   };
 
-  home.file."${firefox_dir}/${default_profile_path_relative}/user.js".source = "${user_js}";
+  home.file = {
+    "${firefox_dir}/${default_profile_path_relative}/user.js".source = "${user_js}";
+
+    # Configuring the default search engine using programs.firefox did not work
+    # Simply copying the config (in ugly binary format) is a simple workaround.
+    "${firefox_dir}/${default_profile_path_relative}/search.json.mozlz4" = {
+      source = ./search.json.mozlz4;
+      force = true;
+    };
+  };
 }
