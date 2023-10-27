@@ -56,6 +56,7 @@ in {
     tokei
     poppler_utils
     veracrypt
+    zathura
   ];
 
   # tactful config
