@@ -40,24 +40,20 @@ in {
   ];
 
   home.packages = with pkgs; [
-    bat # cat but better
+    bat
     curl
-    exa # ls but better
-    fd # find but better
+    exa
     file
-    htop
-    hyperfine # benchmarking tool
-    imagemagick
-    jq # commandline JSON processor
+    jq
     keepassxc
-    neovim # text editor
+    neovim
     pythonWithPackages
-    ripgrep # grep but better
+    ripgrep
     rustup
-    # tactful # contact manager
-    texlive.combined.scheme-full # LaTeX
-    tokei # Count code lines
-    poppler_utils # PDF utilities
+    # tactful
+    texlive.combined.scheme-full
+    tokei
+    poppler_utils
     veracrypt
   ];
 
