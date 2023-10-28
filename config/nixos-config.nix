@@ -46,7 +46,6 @@ in {
   users.users.darkfire = {
     isNormalUser = true;
     extraGroups = [
-      "audio"
       "wheel" # Enable ‘sudo’ for the user.
     ];
     packages = [
@@ -65,6 +64,9 @@ in {
     pkgs.vim
     pkgs.xorg.xinit
   ];
+
+  hardware.bluetooth.enable = true;
+  hardware.pulseaudio.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
