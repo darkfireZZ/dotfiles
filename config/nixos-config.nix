@@ -13,6 +13,13 @@ in {
     /etc/nixos/hardware-configuration.nix
   ];
 
+  nix.nixPath = [
+    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+    # TODO: don't hardcode this path
+    "nixos-config=/home/darkfire/.dotfiles/config/nixos-config.nix"
+    "/nix/var/nix/profiles/per-user/root/channels"
+  ];
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
