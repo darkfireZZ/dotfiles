@@ -55,8 +55,10 @@ in {
     texlive.combined.scheme-full
     tokei
     poppler_utils
+    unzip
     veracrypt
     zathura
+    zip
   ];
 
   # tactful config
