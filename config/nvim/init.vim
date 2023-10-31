@@ -40,25 +40,12 @@ let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
-" <------- Language Client -------> "
-
-" plugin installation
-" Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'bash install.sh',
-"     \ }
-
-" let g:LanguageClient_serverCommands = {
-"     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-"     \ }
-
 " <------- Color Scheme -------> "
 
 " Install color scheme. Configuration is done later on.
 Plug 'chriskempson/base16-vim'
 
 call plug#end()
-
 
 " <------- Color Scheme Config -------> "
 
@@ -94,9 +81,6 @@ autocmd BufReadPost *
   \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
   \ |   exe "normal! g`\""
   \ | endif
-
-" jump to the next occurrence of "<???>", remove it and switch into insert mode
-:map <Space>n /<???><Enter>:noh<Enter>5s
 
 " show existing tab with 4 spaces width
 set tabstop=4
