@@ -7,10 +7,6 @@ let
   username = "darkfire";
   dotfiles_dir = "${home_dir}/.dotfiles";
   theme = "tomorrow-night-eighties";
-  # nixpkgs-firefox-darwin = builtins.fetchGit {
-  #   url = "https://github.com/bandithedoge/nixpkgs-firefox-darwin";
-  #   ref = "main";
-  # };
 
   python = pkgs.python3Full;
   pythonWithPackages = python.withPackages (pythonPkgs: with pythonPkgs; [
@@ -70,10 +66,6 @@ in {
   home.file."${config.xdg.configHome}/nvim" = {
     source = "${dotfiles_dir}/config/nvim";
   };
-  
-  # nixpkgs.overlays = [
-  #   (import "${nixpkgs-firefox-darwin}/overlay.nix")
-  # ];
 
   programs = {
     bash = {
