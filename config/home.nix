@@ -43,7 +43,7 @@ in {
     acpi
     bat
     curl
-    exa
+    eza
     file
     jq
     keepassxc
@@ -159,11 +159,11 @@ in {
         ls = "ls --color=auto";      # enable color support for ls
         sl = "ls";                   # also work in case of typo
 
-        # exa
-        l = "exa";
-        la = "exa --long --all";
+        # eza
+        l = "eza";
+        la = "eza --long --all";
         al = "la";                   # also work in case of typo
-        tree = "exa --tree";
+        tree = "eza --tree";
 
         # movement
         u = "up";
