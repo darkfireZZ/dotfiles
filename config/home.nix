@@ -96,15 +96,6 @@ in {
       enable = true;
     };
 
-    kitty = {
-      enable = true;
-      settings = {
-        remember_window_size = "yes";
-        window_margin_width = 7;
-        hide_window_decorations = "titlebar-only";
-      };
-    };
-
     starship = {
       enable = true;
       enableBashIntegration = true;
