@@ -57,6 +57,7 @@ in {
     veracrypt
     zathura
     zip
+    (pkgs.nerdfonts.override { fonts = [ "DejaVuSansMono" ]; })
   ];
 
   # tactful config
@@ -78,6 +79,9 @@ in {
   home.file."${config.xdg.configHome}/starship.toml" = {
     source = "${dotfiles_dir}/config/starship.toml";
   };
+
+  # fonts
+  fonts.fontconfig.enable = true;
 
   programs = {
     bash = {
