@@ -48,6 +48,7 @@ in {
     pythonWithPackages
     ripgrep
     rustup
+    starship
     # tactful
     texlive.combined.scheme-full
     tokei
@@ -73,6 +74,11 @@ in {
     source = "${dotfiles_dir}/config/feh";
   };
 
+  # starship config
+  home.file."${config.xdg.configHome}/starship.toml" = {
+    source = "${dotfiles_dir}/config/starship.toml";
+  };
+
   programs = {
     bash = {
       enable = true;
@@ -94,38 +100,6 @@ in {
 
     home-manager = {
       enable = true;
-    };
-
-    starship = {
-      enable = true;
-      enableBashIntegration = true;
-      enableZshIntegration = true;
-      settings = {
-        add_newline = true;
-        format = lib.strings.concatStrings [
-          "[┌──\\($username$hostname\\)-\\[$directory\\]$git_branch\n](green)"
-          "[└─[\\$](bold blue)](bold green) "
-        ];
-        directory = {
-          format = "[$path]($style)";
-          style = "white";
-        };
-        username = {
-          format = "[$user]($style)";
-          style_user = "bold blue";
-          style_root = "bold red";
-          show_always = true;
-        };
-        hostname = {
-          ssh_only = true;
-          format = "[@$hostname]($style)";
-          style = "bold blue";
-        };
-        git_branch = {
-          format = " on [$branch(:$remote_branch)]($style)";
-          style = "bold purple";
-        };
-      };
     };
 
     zsh = {
@@ -225,6 +199,8 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
 fi
 '';
       initExtra = ''
+        # set prompt with starship
+        eval "$(starship init zsh)"
         base16_${theme}
         setopt NOTIFY              # report the status of background jobs immediately
         setopt PROMPTSUBST         # enable command substitution in prompt

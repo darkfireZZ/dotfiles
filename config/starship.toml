@@ -1,0 +1,29 @@
+
+add_newline = true
+format = """
+[┌──\\($username$hostname\\)-\\[$directory\\]](secondary)( $git_branch)
+[└─[\\$](bold primary)](secondary) """
+palette = "default"
+
+[directory]
+format = "[$path]($style)"
+style = "white"
+
+[git_branch]
+format = "[on](secondary) [$branch(:$remote_branch)]($style)"
+style = "bold purple"
+
+[hostname]
+format = "[@$hostname]($style)"
+ssh_only = true
+style = "bold primary"
+
+[username]
+format = "[$user]($style)"
+show_always = true
+style_root = "bold red"
+style_user = "bold primary"
+
+[palettes.default]
+primary = "blue"
+secondary = "green"
