@@ -120,7 +120,6 @@ in {
       shellAliases = {
         # dev shortcuts
         e = "$EDITOR";
-        g = "git";
       
         # ls
         ls = "ls --color=auto";      # enable color support for ls
