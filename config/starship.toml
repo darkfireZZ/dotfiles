@@ -1,7 +1,7 @@
 
 add_newline = true
 format = """
-[┌──\\($username$hostname\\)-\\[$directory\\]](secondary)( $git_branch)
+[┌──\\($username$hostname\\)-\\[$directory\\]](secondary)(  $git_branch)
 [└─[\\$](bold primary)](secondary) """
 palette = "default"
 
@@ -10,7 +10,8 @@ format = "[$path]($style)"
 style = "white"
 
 [git_branch]
-format = "[on](secondary) [$branch(:$remote_branch)]($style)"
+format = "[$symbol $branch(:$remote_branch)]($style)"
+symbol = ""
 style = "bold purple"
 
 [hostname]
