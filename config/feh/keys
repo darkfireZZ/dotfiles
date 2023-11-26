@@ -27,8 +27,10 @@ render Return R
 # closing/exiting
 close q
 
+# actions
+action_0 S-Return
+
 # unset these keybinds
-action_0
 action_1
 action_2
 action_3
