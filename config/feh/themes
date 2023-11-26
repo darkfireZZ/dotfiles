@@ -1,0 +1,2 @@
+feh --image-bg black --recursive --scale-down --scroll-step 40
+thumb --image-bg black --recursive --scale-down --scroll-step 40 --thumbnails --thumb-height 128 --thumb-width 128

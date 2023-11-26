@@ -1,0 +1,47 @@
+
+# zoom
+zoom_in plus
+zoom_out minus
+zoom_fit equal
+toggle_keep_vp v
+
+# rotations and flips
+flip underscore
+mirror bar
+orient_1 greater
+orient_3 less
+
+# vim-like image navigation
+next_img j Right
+prev_img k Left
+
+# vim-like image scrolling
+scroll_down J
+scroll_up K
+scroll_left H
+scroll_right L
+
+# Anti-alias the image.  Opens the currently selected image in thumbnail mode.
+render Return R
+
+# closing/exiting
+close q
+
+# unset these keybinds
+action_0
+action_1
+action_2
+action_3
+action_4
+action_5
+action_6
+action_7
+action_8
+action_9
+quit
+save_image
+save_filelist
+toggle_pause
+toggle_fullscreen
+reload_plus
+reload_minus

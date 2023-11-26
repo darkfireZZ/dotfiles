@@ -40,6 +40,7 @@ in {
     bat
     curl
     eza
+    feh
     file
     jq
     keepassxc
@@ -65,6 +66,11 @@ in {
   # neovim config
   home.file."${config.xdg.configHome}/nvim" = {
     source = "${dotfiles_dir}/config/nvim";
+  };
+
+  # feh config
+  home.file."${config.xdg.configHome}/feh" = {
+    source = "${dotfiles_dir}/config/feh";
   };
 
   programs = {
@@ -174,6 +180,9 @@ in {
         vi = "nvim";
         vim = "nvim";
         vimdiff = "nvim -d";
+
+        # feh themes
+        fehthumb = "feh --theme thumb";
       };
       plugins = [
         {
