@@ -58,7 +58,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", font, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", "-e", "/home/darkfire/.nix-profile/bin/zsh", NULL };
+static const char *termcmd[]  = { "st", "-e", "/home/darkfire/.nix-profile/bin/bash", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 static const char *lockcmd[] = { "slock", NULL };
 
