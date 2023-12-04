@@ -1,8 +1,6 @@
 # Dotfiles
 
-My personal dotfiles. Feel free to have a look & use whatever you find useful.
-
-Note that there will likely be frequent breaking changes.
+My personal dotfiles. Feel free to have a look around and use whatever you find useful ;)
 
 # License
 
