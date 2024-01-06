@@ -67,11 +67,6 @@ in {
     (pkgs.nerdfonts.override { fonts = [ "DejaVuSansMono" ]; })
   ];
 
-  # tactful config
-  home.file."${config.xdg.configHome}/tactful.toml" = {
-    text = ''store_path = "${home_dir}/priv/contacts.json"'';
-  };
-
   # neovim config
   home.file."${config.xdg.configHome}/nvim" = {
     source = "${dotfiles_dir}/config/nvim";
