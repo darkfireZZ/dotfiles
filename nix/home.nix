@@ -46,12 +46,14 @@ in {
     bat
     curl
     dig
+    elinks
     eza
     feh
     file
     gnumake
     jq
     keepassxc
+    mutt
     neovim
     nmap
     pythonWithPackages
@@ -90,6 +92,11 @@ in {
 
   home.file.".bashrc" = {
     source = "${dotfiles_dir}/home/.bashrc";
+  };
+
+  home.file.".mutt" = {
+    source = "${dotfiles_dir}/home/.mutt";
+    recursive = true;
   };
 
   # fonts

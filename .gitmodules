@@ -1,0 +1,3 @@
+[submodule "home/.mutt/base16-mutt"]
+	path = home/.mutt/base16-mutt
+	url = https://github.com/josephholsten/base16-mutt

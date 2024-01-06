@@ -1,0 +1,37 @@
+
+set from = "contact@nicolabruhin.com"
+set realname = "Nicola Bruhin"
+
+set smtp_url = "smtps://contact@nicolabruhin.com@mail.nicolabruhin.com:25"
+
+set folder = "imaps://contact@nicolabruhin.com@mail.nicolabruhin.com:143"
+
+set spoolfile = "+INBOX"
+set record = "+Sent"
+set trash = "+Archive"
+set postponed = "+Drafts"
+
+mailboxes +INBOX +Sent +Drafts +Archive +Trash +Spam +All\ Mail
+
+# Store trusted SSL certificates here
+set certificate_file = ~/.mutt/trusted_certificates
+
+set ssl_verify_dates = yes
+
+# This needs to be set to no for protonmail bridge to work. The certificate of
+# the bridge is only valid for 127.0.0.1.
+set ssl_verify_host = no
+
+# Colorscheme
+source ~/.mutt/base16-mutt/base16.muttrc
+
+# Customize keybindings
+source ~/.mutt/keybindings/index
+source ~/.mutt/keybindings/pager
+
+# The mailcap file specifies the external commands to use for handling specific
+# MIME types.
+set mailcap_path = ~/.mutt/mailcap
+
+# Automatically view HTML files using the program specified in mailcap
+auto_view text/html

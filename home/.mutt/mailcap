@@ -1,0 +1,5 @@
+# View HTML inline, formatted using elinks
+text/html; elinks -force-html -dump; copiousoutput
+
+image/jpeg; feh %s
+application/pdf; zathura %s
