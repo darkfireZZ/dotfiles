@@ -45,6 +45,7 @@ in {
     bashInteractive
     bat
     curl
+    dig
     eza
     feh
     file
@@ -52,6 +53,7 @@ in {
     jq
     keepassxc
     neovim
+    nmap
     pythonWithPackages
     ripgrep
     rustup
