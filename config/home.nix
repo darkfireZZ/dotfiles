@@ -48,6 +48,7 @@ in {
     eza
     feh
     file
+    gnumake
     jq
     keepassxc
     neovim
