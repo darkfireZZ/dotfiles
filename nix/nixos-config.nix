@@ -23,7 +23,7 @@ in {
   nix.nixPath = [
     "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
     # TODO: don't hardcode this path
-    "nixos-config=/home/darkfire/.dotfiles/config/nixos-config.nix"
+    "nixos-config=/home/darkfire/.dotfiles/nix/nixos-config.nix"
     "/nix/var/nix/profiles/per-user/root/channels"
   ];
 
@@ -72,7 +72,7 @@ in {
 
   programs.slock.enable = true;
 
-  home-manager.users.darkfire = import /home/darkfire/.dotfiles/config/home.nix;
+  home-manager.users.darkfire = import /home/darkfire/.dotfiles/nix/home.nix;
 
   environment.systemPackages = [
     # have an editor available in case something goes horribly wrong

@@ -69,17 +69,17 @@ in {
 
   # neovim config
   home.file."${config.xdg.configHome}/nvim" = {
-    source = "${dotfiles_dir}/config/nvim";
+    source = "${dotfiles_dir}/home/.config/nvim";
   };
 
   # feh config
   home.file."${config.xdg.configHome}/feh" = {
-    source = "${dotfiles_dir}/config/feh";
+    source = "${dotfiles_dir}/home/.config/feh";
   };
 
   # starship config
   home.file."${config.xdg.configHome}/starship.toml" = {
-    source = "${dotfiles_dir}/config/starship.toml";
+    source = "${dotfiles_dir}/home/.config/starship.toml";
   };
 
   home.file."${config.xdg.configHome}/base16-shell" = {
@@ -87,7 +87,7 @@ in {
   };
 
   home.file.".bashrc" = {
-    source = "${dotfiles_dir}/config/bashrc";
+    source = "${dotfiles_dir}/home/.bashrc";
   };
 
   # fonts
