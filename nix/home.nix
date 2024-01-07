@@ -53,6 +53,7 @@ in {
     elinks
     eza
     feh
+    figlet
     file
     gnumake
     gnupg
