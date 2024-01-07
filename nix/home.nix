@@ -59,6 +59,7 @@ in {
     jq
     keepassxc
     mutt
+    ncspot
     neovim
     nmap
     pass
@@ -91,6 +92,11 @@ in {
   # starship config
   home.file."${config.xdg.configHome}/starship.toml" = {
     source = "${dotfiles_dir}/home/.config/starship.toml";
+  };
+
+  home.file."${config.xdg.configHome}/ncspot" = {
+    source = "${dotfiles_dir}/home/.config/ncspot";
+    recursive = true;
   };
 
   home.file."${config.xdg.configHome}/base16-shell" = {
