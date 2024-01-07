@@ -18,6 +18,10 @@ let
     ref = "master";
   };
 
+  custom_pinentry = pkgs.pinentry.override {
+    enabledFlavors = [ "tty" ];
+  };
+
   # tactful = pkgs.rustPlatform.buildRustPackage rec {
   #   name = "tactful";
   # 
@@ -51,11 +55,14 @@ in {
     feh
     file
     gnumake
+    gnupg
     jq
     keepassxc
     mutt
     neovim
     nmap
+    pass
+    custom_pinentry
     pythonWithPackages
     ripgrep
     rustup

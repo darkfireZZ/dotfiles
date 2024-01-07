@@ -17,6 +17,8 @@ export VISUAL=$EDITOR
 
 export PAGER="bat --plain"
 
+export GPG_TTY=$(tty)
+
 # ------- PATH ------- #
 
 # add rust's cargo directory to PATH if the directory exists
