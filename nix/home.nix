@@ -40,6 +40,16 @@ let
     dmenu = custom_dmenu;
   };
 
+  scripts = pkgs.stdenv.mkDerivation {
+    name = "scripts";
+    src = ../scripts;
+    phases = [ "installPhase" ];
+    installPhase = ''
+      mkdir -p $out/bin
+      cp $src/* $out/bin
+    '';
+  };
+
   # tactful = pkgs.rustPlatform.buildRustPackage rec {
   #   name = "tactful";
   # 
@@ -82,6 +92,7 @@ in {
     ncspot
     neovim
     nmap
+    openconnect
     custom_pass
     anypinentry
     pythonWithPackages
@@ -97,6 +108,7 @@ in {
     zathura
     zip
     (pkgs.nerdfonts.override { fonts = [ "DejaVuSansMono" ]; })
+    scripts
   ];
 
   # neovim config

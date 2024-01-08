@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# Connect to the ETH VPN with openconnect.
+#
+# Authenticates automatically using pass
+#
+# Official information from ETH concerning VPN usage:
+# https://www.isg.inf.ethz.ch/Main/ServicesNetworkVPN
+
+username=$(pass show eth/radius/username)
+password=$(pass show eth/radius/password)
+
+echo $password | sudo openconnect \
+    --user $username@student-net.ethz.ch \
+    --useragent=AnyConnect \
+    --usergroup student-net \
+    --passwd-on-stdin \
+    https://sslvpn.ethz.ch
