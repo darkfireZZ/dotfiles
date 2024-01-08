@@ -18,8 +18,26 @@ let
     ref = "master";
   };
 
-  custom_pinentry = pkgs.pinentry.override {
-    enabledFlavors = [ "tty" ];
+  dmenu_password_patch = ./dmenu_password_patch;
+  custom_dmenu = pkgs.dmenu.override {
+    patches = [ dmenu_password_patch ];
+  };
+
+  anypinentry = pkgs.stdenv.mkDerivation {
+    name = "any-pinentry";
+    src = fetchGit {
+      url = "https://github.com/phenax/any-pinentry";
+      ref = "master";
+    };
+    phases = [ "installPhase" ];
+    installPhase = ''
+      mkdir -p $out/bin
+      cp $src/anypinentry $out/bin
+    '';
+  };
+
+  custom_pass = pkgs.pass.override {
+    dmenu = custom_dmenu;
   };
 
   # tactful = pkgs.rustPlatform.buildRustPackage rec {
@@ -49,6 +67,7 @@ in {
     bashInteractive
     bat
     curl
+    custom_dmenu
     dig
     elinks
     eza
@@ -63,8 +82,8 @@ in {
     ncspot
     neovim
     nmap
-    pass
-    custom_pinentry
+    custom_pass
+    anypinentry
     pythonWithPackages
     ripgrep
     rustup

@@ -65,7 +65,6 @@ in {
     ];
     packages = [
       custom_st
-      pkgs.dmenu
       pkgs.xclip
     ];
   };

@@ -61,6 +61,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", font, "-nb
 static const char *termcmd[]  = { "st", "-e", "/home/darkfire/.nix-profile/bin/bash", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 static const char *lockcmd[] = { "slock", NULL };
+static const char *passmenucmd[] = { "passmenu", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -68,6 +69,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_o,      spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockcmd } },
+	{ MODKEY,                       XK_z,      spawn,          {.v = passmenucmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
