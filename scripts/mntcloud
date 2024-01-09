@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# Mounts the veracrypt volume located at /mnt/cloud/data at /mnt/decloud
+#
+# Authenticates automatically using pass.
+
+volume_location="/mnt/cloud/data"
+mountpoint="/mnt/decloud"
+get_password="pass show priv/cloud/password"
+
+sudo mkdir -p $mountpoint
+
+# Get password from stdin to avoid leaking the password in the process list or
+# in logs.
+#
+# Veracrypt displays a prompt when receiving the password from stdin. That
+# prompt is suppressed by redirecting stdout to /dev/null.
+$get_password | veracrypt > /dev/null \
+    --text \
+    --keyfiles="" \
+    --pim=0 \
+    --protect-hidden=no \
+    $volume_location \
+    $mountpoint
