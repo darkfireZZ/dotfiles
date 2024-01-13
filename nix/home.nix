@@ -84,6 +84,7 @@ in {
     feh
     figlet
     file
+    gcc
     gnumake
     gnupg
     jq
