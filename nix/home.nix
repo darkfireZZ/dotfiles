@@ -113,44 +113,23 @@ in {
     scripts
   ];
 
-  # neovim config
-  home.file."${config.xdg.configHome}/nvim" = {
-    source = "${dotfiles_dir}/home/.config/nvim";
+  home.file = {
+    "${config.xdg.configHome}/nvim".source = "${dotfiles_dir}/home/.config/nvim";
+    "${config.xdg.configHome}/feh".source = "${dotfiles_dir}/home/.config/feh";
+    "${config.xdg.configHome}/git".source = "${dotfiles_dir}/home/.config/git";
+    "${config.xdg.configHome}/starship.toml".source = "${dotfiles_dir}/home/.config/starship.toml";
+    "${config.xdg.configHome}/ncspot" = {
+      source = "${dotfiles_dir}/home/.config/ncspot";
+      recursive = true;
+    };
+    "${config.xdg.configHome}/base16-shell".source = base16_shell;
+    ".bashrc".source = "${dotfiles_dir}/home/.bashrc";
+    ".mutt" = {
+      source = "${dotfiles_dir}/home/.mutt";
+      recursive = true;
+    };
   };
 
-  # feh config
-  home.file."${config.xdg.configHome}/feh" = {
-    source = "${dotfiles_dir}/home/.config/feh";
-  };
-
-  home.file."${config.xdg.configHome}/git" = {
-    source = "${dotfiles_dir}/home/.config/git";
-  };
-
-  # starship config
-  home.file."${config.xdg.configHome}/starship.toml" = {
-    source = "${dotfiles_dir}/home/.config/starship.toml";
-  };
-
-  home.file."${config.xdg.configHome}/ncspot" = {
-    source = "${dotfiles_dir}/home/.config/ncspot";
-    recursive = true;
-  };
-
-  home.file."${config.xdg.configHome}/base16-shell" = {
-    source = base16_shell;
-  };
-
-  home.file.".bashrc" = {
-    source = "${dotfiles_dir}/home/.bashrc";
-  };
-
-  home.file.".mutt" = {
-    source = "${dotfiles_dir}/home/.mutt";
-    recursive = true;
-  };
-
-  # fonts
   fonts.fontconfig.enable = true;
 
   programs.home-manager.enable = true;
