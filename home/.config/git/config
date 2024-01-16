@@ -1,0 +1,13 @@
+[alias]
+	d = "diff"
+	s = "status"
+
+[core]
+	editor = "nvim"
+
+[init]
+	defaultBranch = "main"
+
+[user]
+	email = "64635413+darkfireZZ@users.noreply.github.com"
+	name = "darkfireZZ"

@@ -50,18 +50,18 @@ let
     '';
   };
 
-  # tactful = pkgs.rustPlatform.buildRustPackage rec {
-  #   name = "tactful";
-  # 
-  #   src = pkgs.fetchFromGitHub {
-  #     owner = "darkfireZZ";
-  #     repo = "tactful";
-  #     rev = "dad531b504ecd15cd0ff8b631f8b468fd44cdd84";
-  #     sha256 = "sha256-pdUtAgwL8qS5Mv2W+MZqkUezWARFzkB4HCWDVEYNMsA=";
-  #   };
-  # 
-  #   cargoSha256 = "sha256-PaRBhrJnOzt4T6alb/bPC2JP04cPYekEXGOMbJX/EYg=";
-  # };
+#   tactful = pkgs.rustPlatform.buildRustPackage rec {
+#     name = "tactful";
+# 
+#     src = pkgs.fetchFromGitHub {
+#       owner = "darkfireZZ";
+#       repo = "tactful";
+#       rev = "dad531b504ecd15cd0ff8b631f8b468fd44cdd84";
+#       sha256 = "sha256-pdUtAgwL8qS5Mv2W+MZqkUezWARFzkB4HCWDVEYNMsA=";
+#     };
+# 
+#     cargoSha256 = "sha256-PaRBhrJnOzt4T6alb/bPC2JP04cPYekEXGOMbJX/EYg=";
+#   };
 in {
   home = {
     username = "${username}";
@@ -85,6 +85,7 @@ in {
     figlet
     file
     gcc
+    git
     gnumake
     gnupg
     jq
@@ -122,6 +123,10 @@ in {
     source = "${dotfiles_dir}/home/.config/feh";
   };
 
+  home.file."${config.xdg.configHome}/git" = {
+    source = "${dotfiles_dir}/home/.config/git";
+  };
+
   # starship config
   home.file."${config.xdg.configHome}/starship.toml" = {
     source = "${dotfiles_dir}/home/.config/starship.toml";
@@ -148,25 +153,7 @@ in {
   # fonts
   fonts.fontconfig.enable = true;
 
-  programs = {
-    git = {
-      enable = true;
-      aliases = {
-        s = "status";
-        d = "diff";
-      };
-      userEmail = "64635413+darkfireZZ@users.noreply.github.com";
-      userName = "darkfireZZ";
-      extraConfig = {
-          init.defaultBranch = "main";
-          core.editor = "nvim";
-      };
-    };
-
-    home-manager = {
-      enable = true;
-    };
-  };
+  programs.home-manager.enable = true;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
