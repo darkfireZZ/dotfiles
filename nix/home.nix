@@ -1,6 +1,13 @@
 { config, lib, pkgs, ... }:
 let
   home_dir = "/home/darkfire";
+  peckycheese_repo = pkgs.fetchFromGitHub {
+    owner = "darkfireZZ";
+    repo = "peckycheese";
+    rev = "93e19a5b895ac9eb64235373cb4fe50d624f02a3";
+    hash = "sha256-1PfogWjCIfAG+P0ZDnJtxKiUIoHr6sZrx2q22r+O6iY=";
+  };
+  peckycheese = import "${peckycheese_repo}";
 in
 lib.attrsets.recursiveUpdate (
 let
@@ -49,19 +56,6 @@ let
       cp $src/* $out/bin
     '';
   };
-
-#   tactful = pkgs.rustPlatform.buildRustPackage rec {
-#     name = "tactful";
-# 
-#     src = pkgs.fetchFromGitHub {
-#       owner = "darkfireZZ";
-#       repo = "tactful";
-#       rev = "dad531b504ecd15cd0ff8b631f8b468fd44cdd84";
-#       sha256 = "sha256-pdUtAgwL8qS5Mv2W+MZqkUezWARFzkB4HCWDVEYNMsA=";
-#     };
-# 
-#     cargoSha256 = "sha256-PaRBhrJnOzt4T6alb/bPC2JP04cPYekEXGOMbJX/EYg=";
-#   };
 in {
   home = {
     username = "${username}";
@@ -73,6 +67,8 @@ in {
   ];
 
   home.packages = with pkgs; [
+    peckycheese.urls
+    peckycheese.tactful
     acpi
     bashInteractive
     bat
@@ -101,7 +97,6 @@ in {
     ripgrep
     rustup
     starship
-    # tactful
     texlive.combined.scheme-full
     tokei
     poppler_utils
