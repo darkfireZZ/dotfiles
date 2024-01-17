@@ -4,8 +4,8 @@ let
   peckycheese_repo = pkgs.fetchFromGitHub {
     owner = "darkfireZZ";
     repo = "peckycheese";
-    rev = "93e19a5b895ac9eb64235373cb4fe50d624f02a3";
-    hash = "sha256-1PfogWjCIfAG+P0ZDnJtxKiUIoHr6sZrx2q22r+O6iY=";
+    rev = "b00d16dbd3fd02750d0a8e0702a150310f2301ca";
+    hash = "sha256-XBb2KmhVZ+pjkpvNOYj9aSW9DfrTJAMYXY+fjS85oes=";
   };
   peckycheese = import "${peckycheese_repo}";
 in
@@ -28,19 +28,6 @@ let
   dmenu_password_patch = ./dmenu_password_patch;
   custom_dmenu = pkgs.dmenu.override {
     patches = [ dmenu_password_patch ];
-  };
-
-  anypinentry = pkgs.stdenv.mkDerivation {
-    name = "any-pinentry";
-    src = fetchGit {
-      url = "https://github.com/phenax/any-pinentry";
-      ref = "master";
-    };
-    phases = [ "installPhase" ];
-    installPhase = ''
-      mkdir -p $out/bin
-      cp $src/anypinentry $out/bin
-    '';
   };
 
   custom_pass = pkgs.pass.override {
@@ -67,6 +54,7 @@ in {
   ];
 
   home.packages = with pkgs; [
+    peckycheese.anypinentry
     peckycheese.urls
     peckycheese.tactful
     acpi
@@ -92,7 +80,6 @@ in {
     nmap
     openconnect
     custom_pass
-    anypinentry
     pythonWithPackages
     ripgrep
     rustup
