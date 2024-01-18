@@ -13,7 +13,6 @@ lib.attrsets.recursiveUpdate (
 let
   username = "darkfire";
   dotfiles_dir = "${home_dir}/.dotfiles";
-  theme = "tomorrow-night-eighties";
 
   python = pkgs.python3Full;
   pythonWithPackages = python.withPackages (pythonPkgs: with pythonPkgs; [
