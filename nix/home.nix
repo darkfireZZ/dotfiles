@@ -4,8 +4,8 @@ let
   peckycheese_repo = pkgs.fetchFromGitHub {
     owner = "darkfireZZ";
     repo = "peckycheese";
-    rev = "b00d16dbd3fd02750d0a8e0702a150310f2301ca";
-    hash = "sha256-XBb2KmhVZ+pjkpvNOYj9aSW9DfrTJAMYXY+fjS85oes=";
+    rev = "4e9ba37b9dd4229d904c80d88b28921aabc164cf";
+    hash = "sha256-P+D62lFleJJwEmExb9Lwo+6r1SMoMtKQDEO7XhNsryA=";
   };
   peckycheese = import "${peckycheese_repo}";
 in
@@ -24,13 +24,8 @@ let
     ref = "master";
   };
 
-  dmenu_password_patch = ./dmenu_password_patch;
-  custom_dmenu = pkgs.dmenu.override {
-    patches = [ dmenu_password_patch ];
-  };
-
   custom_pass = pkgs.pass.override {
-    dmenu = custom_dmenu;
+    dmenu = peckycheese.dmenu;
   };
 
   scripts = pkgs.stdenv.mkDerivation {
@@ -54,13 +49,13 @@ in {
 
   home.packages = with pkgs; [
     peckycheese.anypinentry
+    peckycheese.dmenu
     peckycheese.urls
     peckycheese.tactful
     acpi
     bashInteractive
     bat
     curl
-    custom_dmenu
     dig
     elinks
     eza
