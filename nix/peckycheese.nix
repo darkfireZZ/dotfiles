@@ -9,8 +9,8 @@ let
   peckycheese_repo = pkgs.fetchFromGitHub {
     owner = "darkfireZZ";
     repo = "peckycheese";
-    rev = "8cd5f3eafb85a4a8bc22fc3f5f57381d33ef562e";
-    hash = "sha256-ngU6p02t3kUnWDdSobHFtWdKJP8nUUiCu2fJaLLYmRM=";
+    rev = "8f2bb476c4db1240e2e4a5b0c7052e2727ede815";
+    hash = "sha256-HrD5qda5+NUVhALix/G4a1pVgiImTSUMkyyOufUtjRQ=";
   };
 in
   import "${peckycheese_repo}"

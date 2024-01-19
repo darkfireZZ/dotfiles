@@ -44,8 +44,9 @@ in {
   home.packages = with pkgs; [
     peckycheese.anypinentry
     peckycheese.dmenu
-    peckycheese.urls
+    peckycheese.st
     peckycheese.tactful
+    peckycheese.urls
     acpi
     bashInteractive
     bat

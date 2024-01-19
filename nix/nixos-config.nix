@@ -2,16 +2,6 @@
 
 let
   peckycheese = import ./peckycheese.nix { inherit pkgs; };
-
-  st_scrollback_patch = pkgs.fetchurl {
-    url = "https://st.suckless.org/patches/scrollback/st-scrollback-0.8.5.diff";
-    sha256 = "sha256-3H9SI7JvyBPZHUrjW9qlTWMCTK6fGK/Zs1lLozmd+lU=";
-  };
-
-  custom_st = pkgs.st.override {
-    conf = builtins.readFile ./st-config.h;
-    patches = [ st_scrollback_patch ];
-  };
 in {
   imports = [
     <home-manager/nixos>
@@ -62,7 +52,6 @@ in {
       "wheel" # Enable ‘sudo’ for the user.
     ];
     packages = [
-      custom_st
       pkgs.xclip
     ];
   };
