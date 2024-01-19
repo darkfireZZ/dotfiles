@@ -1,13 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   home_dir = "/home/darkfire";
-  peckycheese_repo = pkgs.fetchFromGitHub {
-    owner = "darkfireZZ";
-    repo = "peckycheese";
-    rev = "4e9ba37b9dd4229d904c80d88b28921aabc164cf";
-    hash = "sha256-P+D62lFleJJwEmExb9Lwo+6r1SMoMtKQDEO7XhNsryA=";
-  };
-  peckycheese = import "${peckycheese_repo}";
+  peckycheese = import ./peckycheese.nix { inherit pkgs; };
 in
 lib.attrsets.recursiveUpdate (
 let
