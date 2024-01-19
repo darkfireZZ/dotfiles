@@ -1,9 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  custom_dwm = pkgs.dwm.override {
-    conf = builtins.readFile ./dwm-config.h;
-  };
+  peckycheese = import ./peckycheese.nix { inherit pkgs; };
 
   st_scrollback_patch = pkgs.fetchurl {
     url = "https://st.suckless.org/patches/scrollback/st-scrollback-0.8.5.diff";
@@ -49,7 +47,7 @@ in {
     displayManager.startx.enable = true;
     windowManager.dwm = {
       enable = true;
-      package = custom_dwm;
+      package = peckycheese.dwm;
     };
 
     # Use Swiss german keyboard layout
