@@ -8,11 +8,6 @@ let
   username = "darkfire";
   dotfiles_dir = "${home_dir}/.dotfiles";
 
-  python = pkgs.python3Full;
-  pythonWithPackages = python.withPackages (pythonPkgs: with pythonPkgs; [
-    pip
-  ]); 
-
   base16_shell = fetchGit {
     url = "https://github.com/chriskempson/base16-shell";
     ref = "master";
@@ -69,7 +64,6 @@ in {
     nmap
     openconnect
     custom_pass
-    pythonWithPackages
     ripgrep
     rustup
     starship
