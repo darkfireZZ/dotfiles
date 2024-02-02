@@ -58,6 +58,8 @@ in {
     gnupg
     jq
     keepassxc
+    man-pages
+    man-pages-posix
     mutt
     ncspot
     neovim
