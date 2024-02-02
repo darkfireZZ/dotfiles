@@ -63,6 +63,7 @@ in {
     neovim
     nmap
     openconnect
+    pandoc
     custom_pass
     ripgrep
     rustup
