@@ -41,7 +41,7 @@ in {
     };
 
     # Use Swiss german keyboard layout
-    layout = "ch";
+    xkb.layout = "ch";
   };
 
   services.clipcat.enable = true;
