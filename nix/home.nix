@@ -69,6 +69,7 @@ in {
     custom_pass
     ripgrep
     rustup
+    signal-desktop
     starship
     texlive.combined.scheme-full
     tokei
