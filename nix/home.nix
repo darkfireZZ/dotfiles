@@ -15,6 +15,7 @@ let
 
   custom_pass = pkgs.pass.override {
     dmenu = peckycheese.dmenu;
+    pass = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
   };
 
   scripts = pkgs.stdenv.mkDerivation {
