@@ -7,14 +7,19 @@
 # Official information from ETH concerning VPN usage:
 # https://www.isg.inf.ethz.ch/Main/ServicesNetworkVPN
 
-username="pass show eth/radius/username"
-password="pass show eth/radius/password"
+username=$(pass show eth/radius/username)
+password=$(pass show eth/radius/password)
+totp_token=$(pass otp show eth/totp)
 
 # Get password from stdin to avoid leaking the password in the process list or
 # in logs.
-$password | sudo openconnect \
-    --user $($username)@student-net.ethz.ch \
+sudo openconnect \
+    --user $username@student-net.ethz.ch \
     --useragent=AnyConnect \
     --usergroup student-net \
     --passwd-on-stdin \
-    https://sslvpn.ethz.ch
+    https://sslvpn.ethz.ch \
+    << EOF
+$password
+$totp_token
+EOF
