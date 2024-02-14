@@ -13,10 +13,10 @@ let
     ref = "master";
   };
 
-  custom_pass = pkgs.pass.override {
-    dmenu = peckycheese.dmenu;
-    pass = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
-  };
+  # Ugly workaround to be able to both override pass and have extensions
+  custom_pass = (pkgs.pass.override {
+    pass = pkgs.pass.override { dmenu = peckycheese.dmenu; };
+  }).withExtensions (exts: [ exts.pass-otp ]);
 
   scripts = pkgs.stdenv.mkDerivation {
     name = "scripts";
