@@ -1,7 +1,0 @@
-/.config/*
-!/.config/nvim
-!/.config/nixpkgs
-!/.config/tinted-theming
-
-/.config/tinted-theming/*
-!/.config/tinted-theming/theme_name
