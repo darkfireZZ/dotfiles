@@ -84,13 +84,9 @@ in {
   ];
 
   home.file = {
-    "${config.xdg.configHome}/nvim".source = "${dotfiles_dir}/home/.config/nvim";
-    "${config.xdg.configHome}/feh".source = "${dotfiles_dir}/home/.config/feh";
-    "${config.xdg.configHome}/git".source = "${dotfiles_dir}/home/.config/git";
-    "${config.xdg.configHome}/starship.toml".source = "${dotfiles_dir}/home/.config/starship.toml";
-    "${config.xdg.configHome}/ncspot" = {
-      source = "${dotfiles_dir}/home/.config/ncspot";
-      recursive = true;
+    "${config.xdg.configHome}" = {
+        source = "${dotfiles_dir}/home/.config";
+        recursive = true;
     };
     "${config.xdg.configHome}/base16-shell".source = base16_shell;
     ".bashrc".source = "${dotfiles_dir}/home/.bashrc";
