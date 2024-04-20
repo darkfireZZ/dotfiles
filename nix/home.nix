@@ -59,6 +59,7 @@ in {
     gnupg
     jq
     keepassxc
+    libreoffice
     man-pages
     man-pages-posix
     mutt
