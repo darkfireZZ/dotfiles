@@ -54,6 +54,7 @@ in {
     figlet
     file
     gcc
+    gdb
     git
     gnumake
     gnupg
@@ -77,6 +78,7 @@ in {
     tokei
     poppler_utils
     unzip
+    valgrind
     veracrypt
     zathura
     zip
