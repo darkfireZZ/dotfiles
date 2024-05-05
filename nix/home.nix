@@ -93,6 +93,7 @@ in {
     };
     "${config.xdg.configHome}/base16-shell".source = base16_shell;
     ".bashrc".source = "${dotfiles_dir}/home/.bashrc";
+    ".inputrc".source = "${dotfiles_dir}/home/.inputrc";
     ".gnupg/gpg-agent.conf".source = "${dotfiles_dir}/home/.gnupg/gpg-agent.conf";
     ".mutt" = {
       source = "${dotfiles_dir}/home/.mutt";
