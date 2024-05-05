@@ -21,24 +21,24 @@ call plug#begin()
 " <------- NCM2 -------> "
 
 " neovim completion manager
-Plug 'ncm2/ncm2'
+"Plug 'ncm2/ncm2'
 " requirement of ncm2
-Plug 'roxma/nvim-yarp'
+"Plug 'roxma/nvim-yarp'
 
 " This comes from ncm2, I have no clue what it actually does, but apparently it
 " is important.
 set completeopt=noinsert,menuone,noselect
 
 " suggestions from current buffer
-Plug 'ncm2/ncm2-bufword'
+"Plug 'ncm2/ncm2-bufword'
 " path suggestions
-Plug 'ncm2/ncm2-path'
+"Plug 'ncm2/ncm2-path'
 
 " <------- UltiSnips -------> "
-Plug 'sirver/ultisnips'
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+"Plug 'sirver/ultisnips'
+"let g:UltiSnipsExpandTrigger = '<tab>'
+"let g:UltiSnipsJumpForwardTrigger = '<tab>'
+"let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " <------- Color Scheme -------> "
 
@@ -59,7 +59,7 @@ colorscheme base16-tomorrow-night-eighties
 set termguicolors
 
 " enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
+"autocmd BufEnter * call ncm2#enable_for_buffer()
 
 
 " ==================================== "
