@@ -35,3 +35,6 @@ set mailcap_path = ~/.mutt/mailcap
 
 # Automatically view HTML files using the program specified in mailcap
 auto_view text/html
+
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
