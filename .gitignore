@@ -4,7 +4,9 @@
 /.gnupg
 /.mozilla
 /.password-store
+/.rnd
 /.rustup
+/.pki
 /.ssh
 /.viminfo
 /.Xauthority
