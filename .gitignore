@@ -4,6 +4,7 @@
 /.gnupg
 /.mozilla
 /.password-store
+/.python_history
 /.rnd
 /.rustup
 /.pki
