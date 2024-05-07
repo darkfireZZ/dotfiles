@@ -1,3 +1,3 @@
-[submodule ".dotfiles/home/.mutt/base16-mutt"]
-	path = .dotfiles/home/.mutt/base16-mutt
+[submodule ".mutt/base16-mutt"]
+	path = .mutt/base16-mutt
 	url = https://github.com/josephholsten/base16-mutt
