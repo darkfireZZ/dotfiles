@@ -8,6 +8,10 @@ then
 
     alias vim='nvim'
 
+    # Somehow mutt messes up my terminal colors. This is a workaround.
+    # https://github.com/neomutt/neomutt/issues/518
+    alias mutt='TERM=screen-256color mutt'
+
     # feh themes
     alias fehthumb="feh --theme thumb"
 
@@ -16,9 +20,6 @@ then
     then
         source "$BASE16_SHELL/profile_helper.sh"
     fi
-
-    # TODO fix
-    base16_tomorrow-night-eighties
 
     # set prompt with starship
     eval "$(starship init bash)"
