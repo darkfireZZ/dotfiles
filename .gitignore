@@ -1,7 +1,9 @@
 /.bash_history
 /.cache
+/.cargo
 /.local
 /.gnupg
+/.hunter
 /.mozilla
 /.password-store
 /.python_history
