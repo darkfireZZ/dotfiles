@@ -6,6 +6,7 @@
 /.hunter
 /.mozilla
 /.password-store
+/.pymol
 /.python_history
 /.rnd
 /.rustup
