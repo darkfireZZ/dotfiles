@@ -8,6 +8,9 @@ then
 
     alias vim='nvim'
 
+    # Always use the CLI interface of veracrypt
+    alias veracrypt='veracrypt --text'
+
     # Somehow mutt messes up my terminal colors. This is a workaround.
     # https://github.com/neomutt/neomutt/issues/518
     alias mutt='TERM=screen-256color mutt'
