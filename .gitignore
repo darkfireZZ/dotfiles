@@ -13,4 +13,5 @@
 /.pki
 /.ssh
 /.viminfo
+/.wget-hsts
 /.Xauthority
