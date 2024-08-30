@@ -15,10 +15,13 @@ sudo mkdir -p $mountpoint
 #
 # Veracrypt displays a prompt when receiving the password from stdin. That
 # prompt is suppressed by redirecting stdout to /dev/null.
+#
+# For why -m=nokernelcrypto is required, see https://github.com/veracrypt/VeraCrypt/issues/839
 $get_password | veracrypt > /dev/null \
     --text \
     --keyfiles="" \
     --pim=0 \
+    -m=nokernelcrypto \
     --protect-hidden=no \
     $volume_location \
     $mountpoint
