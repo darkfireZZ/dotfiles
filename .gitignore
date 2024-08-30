@@ -5,6 +5,7 @@
 # Neither do these
 /.contact-store
 /.password-store
+/.bin
 
 # Hidden files that should not be tracked
 /.bash_history
