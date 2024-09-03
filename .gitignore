@@ -13,7 +13,9 @@
 /.cargo
 /.local
 /.gnupg
+/.hex
 /.hunter
+/.mix
 /.mozilla
 /.pymol
 /.python_history
