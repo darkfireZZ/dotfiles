@@ -1,10 +1,13 @@
 
 
 " <------- UltiSnips -------> "
-"Plug 'sirver/ultisnips'
-"let g:UltiSnipsExpandTrigger = '<tab>'
-"let g:UltiSnipsJumpForwardTrigger = '<tab>'
-"let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+" <------- GitHub Copilot -------> "
+let g:copilot_no_tab_map = v:true
+imap <silent><script><expr> <C-Space> copilot#Accept("\<CR>")
 
 " <------- Color Scheme Config -------> "
 
