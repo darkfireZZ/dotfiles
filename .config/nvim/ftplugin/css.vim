@@ -1,2 +1,2 @@
-" use 2 spaces indentation for HTML
+" use 2 spaces indentation for CSS
 set shiftwidth=2
