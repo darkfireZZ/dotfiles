@@ -13,3 +13,6 @@
 [submodule ".config/nvim/pack/ultisnips/start/ultisnips"]
 	path = .config/nvim/pack/ultisnips/start/ultisnips
 	url = https://github.com/SirVer/ultisnips
+[submodule ".config/nvim/pack/base16-vim/start/base16-vim"]
+	path = .config/nvim/pack/base16-vim/start/base16-vim
+	url = https://github.com/chriskempson/base16-vim
