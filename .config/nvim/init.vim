@@ -24,6 +24,10 @@ set termguicolors
 "        Miscellaneous Settings        "
 " ==================================== "
 
+" Set python3 provider. This is necessary for the provider to be available in
+" virtual environments.
+let g:python3_host_prog = '/usr/bin/python3'
+
 " filetype related stuff
 filetype on             " enable filetype detection
 filetype plugin on      " load file-specific plugins
