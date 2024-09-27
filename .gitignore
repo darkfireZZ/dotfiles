@@ -1,4 +1,5 @@
 # These don't contain dotfiles
+/classes
 /org
 /proj
 
