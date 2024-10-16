@@ -1,5 +1,6 @@
 # These don't contain dotfiles
 /classes
+/money
 /org
 /proj
 
