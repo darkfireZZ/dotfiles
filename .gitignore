@@ -1,11 +1,11 @@
 # These don't contain dotfiles
 /classes
-/money
 /org
 /proj
 
 # Neither do these
 /.contact-store
+/.money
 /.password-store
 /.bin
 
