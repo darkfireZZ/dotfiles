@@ -13,6 +13,7 @@
 /.bash_history
 /.cache
 /.cargo
+/.docker
 /.local
 /.gnupg
 /.hex
