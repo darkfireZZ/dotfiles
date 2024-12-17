@@ -1,0 +1,65 @@
+#!/bin/bash
+
+print_help() {
+    echo "Mirror Screen Script"
+    echo "---------------------"
+    echo "This script uses xrandr to mirror the primary display to an external display."
+    echo
+    echo "Usage: $0 [OPTION]"
+    echo
+    echo "Options:"
+    echo "  --help, -h  Show this help message and exit."
+    echo
+    echo "How It Works:"
+    echo "  1. Detects the primary display and any connected external display."
+    echo "  2. Sets the external display to mirror the primary display."
+    echo
+    echo "Requirements:"
+    echo "  - xrandr installed on your system."
+    echo "  - An external display connected and recognized by xrandr."
+}
+
+# Check for help arguments
+if [[ "$1" == "--help" || "$1" == "-h" ]]; then
+    print_help
+    exit 0
+fi
+
+# Detect the primary and external displays
+PRIMARY_DISPLAY=$(xrandr --query | grep " connected primary" | awk '{ print $1 }')
+EXTERNAL_DISPLAY=$(xrandr --query | grep " connected" | grep -v "primary" | awk '{ print $1 }')
+
+# Validate the primary display
+if [ -z "$PRIMARY_DISPLAY" ]; then
+    echo "Error: No primary display detected. Ensure your primary display is connected and set."
+    exit 1
+fi
+
+# Validate the external display
+if [ -z "$EXTERNAL_DISPLAY" ]; then
+    echo "Error: No external display detected. Ensure an external display is connected."
+    exit 1
+fi
+
+# Output detected displays
+echo "Primary display detected: $PRIMARY_DISPLAY"
+echo "External display detected: $EXTERNAL_DISPLAY"
+
+# Get the resolution of the primary display
+PRIMARY_RESOLUTION=$(xrandr --query | grep "$PRIMARY_DISPLAY connected" -A1 | tail -n1 | awk '{print $1}')
+
+if [ -z "$PRIMARY_RESOLUTION" ]; then
+    echo "Error: Unable to detect the resolution of the primary display."
+    exit 1
+fi
+
+# Mirror the primary display to the external display
+xrandr --output "$EXTERNAL_DISPLAY" --mode "$PRIMARY_RESOLUTION" --same-as "$PRIMARY_DISPLAY"
+
+if [ $? -eq 0 ]; then
+    echo "Screen mirroring activated successfully."
+else
+    echo "Error: Failed to activate screen mirroring."
+    exit 1
+fi
+
