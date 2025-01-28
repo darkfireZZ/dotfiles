@@ -4,6 +4,7 @@
 /proj
 
 # Neither do these
+/.book-store
 /.contact-store
 /.money
 /.password-store
