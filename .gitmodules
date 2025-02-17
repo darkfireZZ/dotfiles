@@ -10,3 +10,6 @@
 [submodule ".config/nvim/pack/base16-vim/start/base16-vim"]
 	path = .config/nvim/pack/base16-vim/start/base16-vim
 	url = https://github.com/chriskempson/base16-vim
+[submodule ".config/nvim/pack/github/start/copilot.vim"]
+	path = .config/nvim/pack/github/start/copilot.vim
+	url = https://github.com/github/copilot.vim.git
