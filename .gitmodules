@@ -4,12 +4,6 @@
 [submodule ".config/base16-shell"]
 	path = .config/base16-shell
 	url = https://github.com/chriskempson/base16-shell.git
-[submodule "/home/darkfire/.config/nvim/pack/github/start/copilot.vim"]
-	path = /home/darkfire/.config/nvim/pack/github/start/copilot.vim
-	url = https://github.com/github/copilot.vim.git
-[submodule "/home/darkfire/.config/nvim/pack/vim-elixir/start/vim-elixir"]
-	path = /home/darkfire/.config/nvim/pack/vim-elixir/start/vim-elixir
-	url = https://github.com/elixir-editors/vim-elixir
 [submodule ".config/nvim/pack/ultisnips/start/ultisnips"]
 	path = .config/nvim/pack/ultisnips/start/ultisnips
 	url = https://github.com/SirVer/ultisnips
