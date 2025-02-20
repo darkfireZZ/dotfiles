@@ -13,7 +13,7 @@ sys_password=$(pass show priv/${hostname}/${sys_username}/password)
 
 eth_username=$(pass show eth/radius/username)
 eth_password=$(pass show eth/radius/password)
-totp_token=$(pass otp show eth/totp)
+totp_token=$(pass otp show eth/active_directory/totp)
 
 # Get password from stdin to avoid leaking the password in the process list or
 # in logs.
