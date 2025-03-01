@@ -7,6 +7,10 @@
 # Official information from ETH concerning VPN usage:
 # https://www.isg.inf.ethz.ch/Main/ServicesNetworkVPN
 
+# We want the script to fail if any command fails.
+# E.g. if we fail to get the password.
+set -e
+
 hostname=$(cat /proc/sys/kernel/hostname)
 sys_username=$(whoami)
 sys_password=$(pass show priv/${hostname}/${sys_username}/password)
